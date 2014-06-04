@@ -9,7 +9,7 @@ Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
 Tested up to: 3.9.1<br />
-Stable tag: 0.99<br />
+Stable tag: 0.91<br />
 Version: 0.91
 
 Description
