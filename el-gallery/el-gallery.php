@@ -3,16 +3,16 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.9
+Version: 0.91
 Author: EricL owry
 Author URI: http://ericlowry.fr/
 License: GPL2
 
 
 TODO :
- -> Stop using float on the galleries and use absolute positioning and javascript-based height
  -> Set up an options-menu in the control pannel
  -> Make multiple-line thumbnails centered
+ -> Set up translations for no-javascript message
 */
 
 wp_enqueue_script( 'jquery' );
