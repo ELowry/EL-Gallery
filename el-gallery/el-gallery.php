@@ -3,21 +3,74 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.91
-Author: Eric Lowry
+Version: 0.92
+Author: EricL owry
 Author URI: http://ericlowry.fr/
 License: GPL2
 
 
 TODO :
+ -> Stop using float on the galleries and use absolute positioning and javascript-based height
  -> Set up an options-menu in the control pannel
  -> Make multiple-line thumbnails centered
- -> Set up translations for no-javascript message
 */
 
+add_action('init', 'el_gallery_translation_init');
 wp_enqueue_script( 'jquery' );
-wp_enqueue_script( 'el-gallery', plugins_url('/js/el-gallery.js', __FILE__ ) );
-wp_enqueue_style( 'el-gallery', plugins_url('/css/el-gallery.css', __FILE__ ) );
+wp_enqueue_style( 'el-gallery_style', plugins_url('/css/el-gallery.css', __FILE__ ) );
+
+// This initiates translation
+function el_gallery_translation_init() {
+	load_plugin_textdomain('el-gallery', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+
+
+if (is_admin()){
+	include('el-gallery-admin.php');
+}
+
+
+
+	function prepare_el_gallery_shortcode($type,$atts){
+		extract(shortcode_atts(array(
+			'orderby' => 'menu_order ASC, ID ASC',
+			'include' => '',
+			'id' => $post->ID,
+			'itemtag' => 'dl',
+			'icontag' => 'dt',
+			'captiontag' => 'dd',
+			'columns' => 3,
+			'size' => 'full',
+			'link' => 'file'
+		), $atts));
+
+		if ( wpmd_is_phone() && get_option('el_gallery_mobile_detect') ) {
+			$size = 'medium';
+		}
+
+		if ($type == "thumbnails") {
+			$size = 'thumbnail';
+		}
+
+		$args = array(
+			'post_type' => 'attachment',
+			'post_status' => 'inherit',
+			'post_mime_type' => 'image',
+			'orderby' => $orderby
+		);
+
+		if ( !empty($include) )
+			$args['include'] = $include;
+		else {
+			$args['post_parent'] = $id;
+			$args['numberposts'] = -1;
+		}
+
+		$images = get_posts($args);
+
+		return array($images, $size);
+
+	};
 
 remove_shortcode('gallery');
 add_shortcode('gallery', 'el_gallery');
@@ -34,42 +87,23 @@ function el_gallery($atts) {
 		$atts['include'] = $atts['ids'];
 	}
 
-	extract(shortcode_atts(array(
-		'orderby' => 'menu_order ASC, ID ASC',
-		'include' => '',
-		'id' => $post->ID,
-		'itemtag' => 'dl',
-		'icontag' => 'dt',
-		'captiontag' => 'dd',
-		'columns' => 3,
-		'size' => 'full',
-		'link' => 'file'
-	), $atts));
-	
-	if ( wpmd_is_phone() ) {
-		$size = 'medium';
-	}
 
-	$args = array(
-		'post_type' => 'attachment',
-		'post_status' => 'inherit',
-		'post_mime_type' => 'image',
-		'orderby' => $orderby
-	);
+	$prepared = prepare_el_gallery_shortcode('',$atts);
+	$images = $prepared[0];
+	$size = $prepared[1];
 
-	if ( !empty($include) )
-		$args['include'] = $include;
-	else {
-		$args['post_parent'] = $id;
-		$args['numberposts'] = -1;
-	}
+	$duration = get_option('el_gallery_time') * 1000;
+	$switch_width = get_option('el_gallery_width');
+	wp_enqueue_script( 'el-gallery', plugins_url('/js/el-gallery.js', __FILE__ ) );
+	wp_localize_script( 'el-gallery', 'el_gallery_parameters',array(
+		'duration' => $duration,
+		'switch_width' => $switch_width
+		));
 
-	$images = get_posts($args);
-	
 	$print_gallery .= '<figure class="el_gallery">';
-	
-	$print_gallery .= '<noscript><p>Pour profiter pleinement de ce site, il faut activer JavaScript. Voici des <a href="http://www.enable-javascript.com/fr" target="_blank">instructions pour activer le JavaScript dans votre navigateur</a>.</p></noscript>';
-	
+
+	$print_gallery .= '<noscript><h5>'.__('To fully enjoy this website, it is necesairy to have activatedJavaScript. Here are <a href="http://www.enable-javascript.com/" target="_blank"> instructions on how to activate JavaScript for your browser</a>.','el-gallery').'</h5></noscript>';
+
 	$print_gallery .= '<div class="el_gallery-slideshow_wrapper">';
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;
@@ -78,46 +112,24 @@ function el_gallery($atts) {
 		if($description == '') $description = $image->post_title;
 
 		$image_alt = get_post_meta($image->ID,'_wp_attachment_image_alt', true);
-		
+
 		$url_info = wp_get_attachment_image_src($image->ID, $size);
 
 		// render your gallery here
-		$print_gallery .= '<a href="'.$url_info['0'].'">';
+		if (get_option('el_gallery_links') == true) {
+			$print_gallery .= '<a href="'.$url_info['0'].'">';
+		}
 		$print_gallery .= wp_get_attachment_image($image->ID, $size);
 		$print_gallery .= '</a>';
 	}
 	$print_gallery .= '</div>';
-	
-	
-	
-	extract(shortcode_atts(array(
-		'orderby' => 'menu_order ASC, ID ASC',
-		'include' => '',
-		'id' => $post->ID,
-		'itemtag' => 'dl',
-		'icontag' => 'dt',
-		'captiontag' => 'dd',
-		'columns' => 3,
-		'size' => 'thumbnail',
-		'link' => 'file'
-	), $atts));
 
-	$args = array(
-		'post_type' => 'attachment',
-		'post_status' => 'inherit',
-		'post_mime_type' => 'image',
-		'orderby' => $orderby
-	);
 
-	if ( !empty($include) )
-		$args['include'] = $include;
-	else {
-		$args['post_parent'] = $id;
-		$args['numberposts'] = -1;
-	}
 
-	$images = get_posts($args);
-	
+	$prepared = prepare_el_gallery_shortcode("thumbnails",$atts);
+	$image = $prepared[0];
+	$size = $prepared[1];
+
 	if ( wpmd_is_notphone() && sizeof($images) < 8 ) {
 		$thumbs_padding = (100 - sizeof($images) * 12.5) / 2;
 	} elseif ( sizeof($images) < 4 ) {
@@ -125,7 +137,7 @@ function el_gallery($atts) {
 	} else {
 		$thumbs_padding = 0;
 	}
-	
+
 	$print_gallery .= '<figcaption class="el_gallery-thumbnails_wrapper" style="padding-left:'.$thumbs_padding.'%;">';
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;
@@ -139,9 +151,10 @@ function el_gallery($atts) {
 		$print_gallery .= wp_get_attachment_image($image->ID, $size);
 	}
 	$print_gallery .= '</figcaption>';
-	
+
 	$print_gallery .= '</figure>';
 	return $print_gallery;
 }
+
 
 ?>
