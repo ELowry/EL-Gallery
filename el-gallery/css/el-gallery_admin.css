@@ -1,0 +1,33 @@
+/*
+Plugin Name: EL-Gallery
+Plugin URI: http://ericlowry.fr/
+Description: An extremely simplistic gallery replacement plugin.
+Version: 0.92
+Author: Eric Lowry
+Author URI: http://ericlowry.fr/
+License: GPL2
+*/
+
+.el-gallery_option + hr {
+	clear: both;
+}
+.el-gallery_option label, .el-gallery_option input {
+	float:left;
+	display: block;
+	margin: 5px;
+}
+.el-gallery_option input[type="checkbox"] {
+	width: 20px;
+	margin-right: -25px;
+	text-align: center;
+}
+.el-gallery_option label {
+	width: 20%;
+	min-width: 80px;
+	max-width: 150px;
+	font-weight: bold;
+	margin-left: 35px;
+}
+.el-gallery_option span {
+	display: block;
+}
