@@ -10,9 +10,9 @@ License: GPL2
 
 
 TODO :
- -> Stop using float on the galleries and use absolute positioning and javascript-based height
- -> Set up an options-menu in the control pannel
  -> Make multiple-line thumbnails centered
+ -> Set up a max-height (or two, depending on the switch width) for tall images
+ -> Add an option to choose quality of link-images
 */
 
 add_action('init', 'el_gallery_translation_init');
