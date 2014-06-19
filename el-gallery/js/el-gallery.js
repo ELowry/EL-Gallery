@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.92
+Version: 0.93
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -12,7 +12,7 @@ License: GPL2
 
 	var duration = data.duration ;
 	var switch_width = data.switch_width ;
-	console.log(switch_width);
+	var centered = data.centered ;
 	
 	function variable_css(switch_width){
 		if ($(window).width() < switch_width ) {
@@ -32,7 +32,7 @@ License: GPL2
 		var curr_gallery = '.el_gallery_number-' + gallery_number;
 
 
-		function start_slideshow(duration,curr_gallery) {
+		function start_slideshow(duration,centered,curr_gallery) {
 
 			// This function is the slideshow loop itsself
 			function startloop(cntmax,cnt,type,duration,curr_gallery) {
@@ -102,6 +102,7 @@ License: GPL2
 			});
 
 
+
 			// We check the thumbnails padding on load and resize
 			function gallery_padding(switch_width,curr_gallery) {
 				var count = $('.el_gallery-slideshow_wrapper img',curr_gallery).length,
@@ -116,8 +117,35 @@ License: GPL2
 				}
 				$('.el_gallery-thumbnails_wrapper',curr_gallery).css('padding-left', thumbs_padding);
 			}
+			// We set up the function to center extra thumbnails
+			function center_thumbnails(curr_gallery) {
+				var count = count = $('.el_gallery-slideshow_wrapper img',curr_gallery).length,
+				window_width = $(window).width();
+				if ( count  > 5 && window_width < switch_width ) {
+					num = 5;
+				} else if ( count  > 8 && window_width > ( switch_width - 1 ) ) {
+					num = 8;
+				}
+				var full_lines = Math.floor(count / num),
+					count_extra = ((count / num) - full_lines) * num,
+					curr_count = 0;
+				$('.el_gallery-thumbnails_wrapper img',curr_gallery).each(function() {
+					if (curr_count == (full_lines * num)) {
+						var thumb_margin_num = 1.25 + ((100 - (count_extra * 12.5)) / 2);
+						var thumb_margin = thumb_margin_num + "%";
+						$(this).css('margin-left', thumb_margin);
+						return false;
+					}
+					curr_count++;
+				});
+			}
+
+
 			$(window).resize(function(){
-				gallery_padding(curr_gallery);
+				if (centered == "true") {
+					gallery_padding(curr_gallery);
+					center_thumbnails(curr_gallery);
+				}
 				for ( var i = 0; i < $('.attachment-thumbnail',curr_gallery).length; i++ ) {
 					if ( $('.attachment-thumbnail:eq('+i+')',curr_gallery).hasClass('current') ) {
 						var resize_cnt = i;
@@ -127,7 +155,13 @@ License: GPL2
 				clearInterval(loop_interval);
 				startloop(cntmax,resize_cnt,"resize",duration,curr_gallery);
 			});
-			$(document).ready(function(){gallery_padding(switch_width,curr_gallery)});
+
+			$(document).ready(function(){
+				if (centered == "true") {
+					gallery_padding(switch_width,curr_gallery);
+					center_thumbnails(curr_gallery);
+				}
+			});
 
 		}
 
@@ -138,7 +172,7 @@ License: GPL2
 				$('<img />')
 				.attr('src', arrayOfImages[index])
 				.load(function(){
-					start_slideshow(duration,curr_gallery);
+					start_slideshow(duration,centered,curr_gallery);
 				});
 			});
 		}

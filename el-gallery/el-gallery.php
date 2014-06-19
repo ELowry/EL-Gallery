@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: EL-Gallery
-Plugin URI: http://ericlowry.fr/
+Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.92
+Version: 0.93
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -94,10 +94,12 @@ function el_gallery($atts) {
 
 	$duration = get_option('el_gallery_time') * 1000;
 	$switch_width = get_option('el_gallery_width');
+	$centered = get_option('el_gallery_center');
 	wp_enqueue_script( 'el-gallery', plugins_url('/js/el-gallery.js', __FILE__ ) );
 	wp_localize_script( 'el-gallery', 'el_gallery_parameters',array(
 		'duration' => $duration,
-		'switch_width' => $switch_width
+		'switch_width' => $switch_width,
+		'centered' => $centered
 		));
 
 	$print_gallery .= '<figure class="el_gallery">';
@@ -130,9 +132,9 @@ function el_gallery($atts) {
 	$image = $prepared[0];
 	$size = $prepared[1];
 
-	if ( wpmd_is_notphone() && sizeof($images) < 8 ) {
+	if ( wpmd_is_notphone() && sizeof($images) < 8 && $centered == true ) {
 		$thumbs_padding = (100 - sizeof($images) * 12.5) / 2;
-	} elseif ( sizeof($images) < 4 ) {
+	} elseif ( sizeof($images) < 5 && $centered == true ) {
 		$thumbs_padding = (100 - sizeof($images) * 20) / 2;
 	} else {
 		$thumbs_padding = 0;

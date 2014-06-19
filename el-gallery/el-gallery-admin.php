@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.92
+Version: 0.93
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -61,16 +61,19 @@ function el_gallery_settings_page() {
 	$hidden_field = 'el_gallery_submit_hidden';
 	$opt_time = 'el_gallery_time';
 	$opt_width = 'el_gallery_width';
+	$opt_center = 'el_gallery_center';
 	$opt_links = 'el_gallery_links';
 	$opt_mobile_detect = 'el_gallery_mobile_detect';
 	$data_field_time = 'el_gallery_time';
 	$data_field_width = 'el_gallery_width';
+	$data_field_center = 'el_gallery_center';
 	$data_field_links = 'el_gallery_links';
 	$data_field_mobile_detect = 'el_gallery_mobile_detect';
 
 	// Read in existing option values from database
 	$opt_val_time = get_option( $opt_time );
 	$opt_val_width = get_option( $opt_width );
+	$opt_val_center = get_option( $opt_center );
 	$opt_val_links = get_option( $opt_links );
 	$opt_val_mobile_detect = get_option( $opt_mobile_detect );
 
@@ -81,25 +84,37 @@ function el_gallery_settings_page() {
 		// Read their posted value
 		$opt_val_time = $_POST[ $data_field_time ];
 		$opt_val_width = $_POST[ $data_field_width ];
+		$opt_val_center = $_POST[ $data_field_center ];
 		$opt_val_links = $_POST[ $data_field_links ];
 		$opt_val_mobile_detect = $_POST[ $data_field_mobile_detect ];
 
 		// Save the posted value in the database
 		update_option( $opt_time, $opt_val_time );
 		update_option( $opt_width, $opt_val_width );
+		update_option( $opt_center, $opt_val_center );
 		update_option( $opt_links, $opt_val_links );
 		update_option( $opt_mobile_detect, $opt_val_mobile_detect );
 
 		// Put a settings updated message on the screen
 
 	// Prepare default values upon activate
-	register_activation_hook( __FILE__, 'el_gallery_initial_options' );
-
-	function el_gallery_initial_options($opt_val_time,$opt_val_links,$opt_val_mobile_detect){
+	register_activation_hook( __FILE__, 'el_gallery_initiate_options' );
+	function el_gallery_initiate_options($opt_time,$opt_width,$opt_center,$opt_links,$opt_mobile_detect){
 		add_option($opt_time, '10');
 		add_option($opt_width, '600');
+		add_option($opt_center, 'true');
 		add_option($opt_links, 'true');
 		add_option($opt_mobile_detect, 'false');
+	}
+
+	// Remove options upon deactivate
+	register_deactivation_hook( __FILE__, 'el_gallery_remove_options' );
+	function el_gallery_remove_options($opt_time,$opt_width,$opt_center,$opt_links,$opt_mobile_detect){
+		remove_option($opt_time);
+		remove_option($opt_width);
+		remove_option($opt_center);
+		remove_option($opt_links);
+		remove_option($opt_mobile_detect);
 	}
 
 	// Error Correction
@@ -147,6 +162,14 @@ function el_gallery_settings_page() {
 		<label><?php _e("Transition Width: ", 'el-gallery' ); ?></label>
 		<input type="input" name="<?php echo $data_field_width; ?>" value="<?php echo $opt_val_width; ?>" size="10">
 		<span class="description"><?php _e( "When the window's width is inferior to this number, the thumbnails will go from 8 per line to 5 per line. (to disable: 0)", 'el-gallery' ); ?></span>
+	</div>
+
+	<hr />
+
+	<div class="el-gallery_option">
+		<input type="checkbox" name="<?php echo $data_field_center; ?>" value="true" <?php if($opt_val_center == true){echo 'checked="checked"';}?>>
+		<label><?php _e("Centered Thumbnails: ", 'el-gallery' ); ?></label>
+		<span class="description"><?php _e( 'This will center thumbnails. If deactivated, they will align to the left.', 'el-gallery' ); ?></span>
 	</div>
 
 	<hr />
