@@ -10,7 +10,7 @@ Author: Eric Lowry<br />
 Requires at least: 3.5<br />
 Tested up to: 3.9.1<br />
 Stable tag: 1.0<br />
-Version: 0.93<br />
+Version: 0.94<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,11 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+
+### Version 0.94
+* Thumbnails only appear once the gallery is loaded.
+* Fixed thumbnail centering when page is resized.
+* Optimized thumbnail centering.
 
 ### Version 0.93
 

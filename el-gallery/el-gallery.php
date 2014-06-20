@@ -3,14 +3,13 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.93
+Version: 0.94
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
 
 
 TODO :
- -> Make multiple-line thumbnails centered
  -> Set up a max-height (or two, depending on the switch width) for tall images
  -> Add an option to choose quality of link-images
 */
@@ -138,6 +137,12 @@ function el_gallery($atts) {
 		$thumbs_padding = (100 - sizeof($images) * 20) / 2;
 	} else {
 		$thumbs_padding = 0;
+	}
+
+	if (wpmd_is_notphone()) {
+		$thumbs_size = "10%";
+	} else {
+		$thumbs_size = "16%";
 	}
 
 	$print_gallery .= '<figcaption class="el_gallery-thumbnails_wrapper" style="padding-left:'.$thumbs_padding.'%;">';

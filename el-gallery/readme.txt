@@ -9,7 +9,7 @@ Author: Eric Lowry
 Requires at least: 3.5
 Tested up to: 3.9.1
 Stable tag: 1.0
-Version: 0.93
+Version: 0.94
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,11 @@ There you will be able to modify the duration of each slide as well as a few oth
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
+
+= Version 0.94 =
+* Thumbnails only appear once the gallery is loaded.
+* Fixed thumbnail centering when page is resized.
+* Optimized thumbnail centering.
 
 = Version 0.93 =
 * Added options to center thumbnails or leave them aligned to the left.

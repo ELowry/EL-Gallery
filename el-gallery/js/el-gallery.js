@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.93
+Version: 0.94
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -57,6 +57,7 @@ License: GPL2
 					image.onload = function () {
 						setTimeout(function(){
 							$('.el_gallery-slideshow_wrapper',curr_gallery).css('background-image','none');
+							$('.el_gallery-thumbnails_wrapper img',curr_gallery).css('height', 'auto');
 							startloop(cntmax,cnt,false,duration,curr_gallery);
 						}, 1000); // the image has loaded, we display it
 					}
@@ -103,35 +104,28 @@ License: GPL2
 
 
 
-			// We check the thumbnails padding on load and resize
-			function gallery_padding(switch_width,curr_gallery) {
-				var count = $('.el_gallery-slideshow_wrapper img',curr_gallery).length,
-					window_width = $(window).width(),
-					thumbs_padding = 0;
-				if ( count  < 5 && window_width < switch_width ) {
-					padding_width = (100 - count * 20) / 2;
-					thumbs_padding = padding_width + '%';
-				} else if ( count  < 8 && window_width > ( switch_width - 1 ) ) {
-					padding_width = (100 - count * 12.5) / 2;
-					thumbs_padding = padding_width + '%';
-				}
-				$('.el_gallery-thumbnails_wrapper',curr_gallery).css('padding-left', thumbs_padding);
-			}
 			// We set up the function to center extra thumbnails
 			function center_thumbnails(curr_gallery) {
-				var count = count = $('.el_gallery-slideshow_wrapper img',curr_gallery).length,
+				var count = $('.el_gallery-slideshow_wrapper img',curr_gallery).length,
 				window_width = $(window).width();
-				if ( count  > 5 && window_width < switch_width ) {
-					num = 5;
-				} else if ( count  > 8 && window_width > ( switch_width - 1 ) ) {
-					num = 8;
+				if ( window_width < switch_width ) {
+					var num = 5,
+						other_num = 8,
+						thumb_elem_width = 20;
+				} else {
+					var num = 8,
+						other_num = 5,
+						thumb_elem_width = 12.25;
 				}
 				var full_lines = Math.floor(count / num),
 					count_extra = ((count / num) - full_lines) * num,
+					other_full_lines = Math.floor(count / other_num),
 					curr_count = 0;
 				$('.el_gallery-thumbnails_wrapper img',curr_gallery).each(function() {
-					if (curr_count == (full_lines * num)) {
-						var thumb_margin_num = 1.25 + ((100 - (count_extra * 12.5)) / 2);
+					if (curr_count == (other_full_lines * other_num)) {
+						$(this).css('margin-left', '1.25%');
+					}if (curr_count == (full_lines * num)) {
+						var thumb_margin_num = 1.25 + ((100 - (count_extra * thumb_elem_width)) / 2);
 						var thumb_margin = thumb_margin_num + "%";
 						$(this).css('margin-left', thumb_margin);
 						return false;
@@ -143,7 +137,6 @@ License: GPL2
 
 			$(window).resize(function(){
 				if (centered == "true") {
-					gallery_padding(curr_gallery);
 					center_thumbnails(curr_gallery);
 				}
 				for ( var i = 0; i < $('.attachment-thumbnail',curr_gallery).length; i++ ) {
@@ -158,7 +151,7 @@ License: GPL2
 
 			$(document).ready(function(){
 				if (centered == "true") {
-					gallery_padding(switch_width,curr_gallery);
+					$('.el_gallery-thumbnails_wrapper',curr_gallery).css('padding-left', '0');
 					center_thumbnails(curr_gallery);
 				}
 			});
