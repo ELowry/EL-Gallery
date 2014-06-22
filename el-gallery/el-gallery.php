@@ -3,14 +3,13 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.94
+Version: 1.0
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
 
 
 TODO :
- -> Set up a max-height (or two, depending on the switch width) for tall images
  -> Add an option to choose quality of link-images
 */
 
@@ -94,13 +93,16 @@ function el_gallery($atts) {
 	$duration = get_option('el_gallery_time') * 1000;
 	$switch_width = get_option('el_gallery_width');
 	$centered = get_option('el_gallery_center');
+	$max_height = get_option('el_gallery_height');
 	wp_enqueue_script( 'el-gallery', plugins_url('/js/el-gallery.js', __FILE__ ) );
 	wp_localize_script( 'el-gallery', 'el_gallery_parameters',array(
 		'duration' => $duration,
 		'switch_width' => $switch_width,
-		'centered' => $centered
+		'centered' => $centered,
+		'max_height' => $max_height
 		));
 
+	$print_gallery .= '<!-- EL-Gallery Plugin -->'."\r\n";
 	$print_gallery .= '<figure class="el_gallery">';
 
 	$print_gallery .= '<noscript><h5>'.__('To fully enjoy this website, it is necesairy to have activatedJavaScript. Here are <a href="http://www.enable-javascript.com/" target="_blank"> instructions on how to activate JavaScript for your browser</a>.','el-gallery').'</h5></noscript>';
@@ -159,7 +161,7 @@ function el_gallery($atts) {
 	}
 	$print_gallery .= '</figcaption>';
 
-	$print_gallery .= '</figure>';
+	$print_gallery .= '</figure>'."\r\n";
 	return $print_gallery;
 }
 

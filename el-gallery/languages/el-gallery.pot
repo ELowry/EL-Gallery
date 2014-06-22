@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-06-19 11:44+0100\n"
-"PO-Revision-Date: 2014-06-19 11:44+0100\n"
+"POT-Creation-Date: 2014-06-22 20:00+0100\n"
+"PO-Revision-Date: 2014-06-22 20:00+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: en_US\n"
@@ -26,46 +26,55 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: ../el-gallery-admin.php:130
+#: ../el-gallery-admin.php:137
 msgid "settings saved."
 msgstr ""
 
-#: ../el-gallery-admin.php:142
+#: ../el-gallery-admin.php:149
 msgid "EL-Gallery Plugin Settings"
 msgstr ""
 
-#: ../el-gallery-admin.php:154
+#: ../el-gallery-admin.php:166
 msgid "Slide Duration: "
 msgstr ""
 
-#: ../el-gallery-admin.php:156
+#: ../el-gallery-admin.php:168
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr ""
 
-#: ../el-gallery-admin.php:162
+#: ../el-gallery-admin.php:174
 msgid "Transition Width: "
 msgstr ""
 
-#: ../el-gallery-admin.php:164
+#: ../el-gallery-admin.php:176
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
 msgstr ""
 
-#: ../el-gallery-admin.php:171
+#: ../el-gallery-admin.php:182
+msgid "Maximum Aspect Ratio: "
+msgstr ""
+
+#: ../el-gallery-admin.php:184
+msgid ""
+"Maximum aspect ratio, to avoid images being too tall. (1:x asoect ratio)"
+msgstr ""
+
+#: ../el-gallery-admin.php:191
 msgid "Centered Thumbnails: "
 msgstr ""
 
-#: ../el-gallery-admin.php:172
+#: ../el-gallery-admin.php:192
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 
-#: ../el-gallery-admin.php:179
+#: ../el-gallery-admin.php:199
 msgid "Clickable images: "
 msgstr ""
 
-#: ../el-gallery-admin.php:180
+#: ../el-gallery-admin.php:200
 msgid ""
 "By activating this, clicking on images in your gallery will open them in a "
 "separate tab. If you are using a lightbox plugin (like <a href=\"http://"
@@ -73,22 +82,22 @@ msgid ""
 "a>), this might be necessairy for it to function."
 msgstr ""
 
-#: ../el-gallery-admin.php:187
+#: ../el-gallery-admin.php:207
 msgid "Mobile Detect: "
 msgstr ""
 
-#: ../el-gallery-admin.php:188
+#: ../el-gallery-admin.php:208
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
 "and want images to be loaded in \"medium\" resolution on smartphones."
 msgstr ""
 
-#: ../el-gallery-admin.php:194
+#: ../el-gallery-admin.php:214
 msgid "Save Changes"
 msgstr ""
 
-#: ../el-gallery.php:107
+#: ../el-gallery.php:108
 msgid ""
 "To fully enjoy this website, it is necesairy to have activatedJavaScript. "
 "Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "

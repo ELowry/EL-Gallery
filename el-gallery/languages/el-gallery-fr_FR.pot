@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-06-19 11:44+0100\n"
-"PO-Revision-Date: 2014-06-19 11:45+0100\n"
+"POT-Creation-Date: 2014-06-22 20:02+0100\n"
+"PO-Revision-Date: 2014-06-22 20:03+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: en_US\n"
@@ -26,27 +26,27 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
-#: ../el-gallery-admin.php:130
+#: ../el-gallery-admin.php:137
 msgid "settings saved."
 msgstr "réglages enregistrés."
 
-#: ../el-gallery-admin.php:142
+#: ../el-gallery-admin.php:149
 msgid "EL-Gallery Plugin Settings"
 msgstr "Réglages de l'Extension EL-Gallery"
 
-#: ../el-gallery-admin.php:154
+#: ../el-gallery-admin.php:166
 msgid "Slide Duration: "
 msgstr "Durée des Diapositives : "
 
-#: ../el-gallery-admin.php:156
+#: ../el-gallery-admin.php:168
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr "Ceci correspond à la durée en secondes des diapositives. (Minimum : 2)"
 
-#: ../el-gallery-admin.php:162
+#: ../el-gallery-admin.php:174
 msgid "Transition Width: "
 msgstr "Largeur de Transition : "
 
-#: ../el-gallery-admin.php:164
+#: ../el-gallery-admin.php:176
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
@@ -54,22 +54,34 @@ msgstr ""
 "Lorsque la largeur de la fenêtre est inférieure à ce nombre, les miniatures "
 "passeront de 8 par ligne à 5 par ligne. (pour desactiver : 0)"
 
-#: ../el-gallery-admin.php:171
+#: ../el-gallery-admin.php:182
+msgid "Maximum Aspect Ratio: "
+msgstr "Format Maximum :"
+
+#: ../el-gallery-admin.php:184
+msgid ""
+"This option enables you to avoid tall images being too large. (1:x aspect "
+"ratio)"
+msgstr ""
+"Cette option vous permet d'éviter que les iamges verticales soient trop "
+"grandes. (ratio d'aspect 1:x)"
+
+#: ../el-gallery-admin.php:191
 msgid "Centered Thumbnails: "
 msgstr "Miniatures Centrées : "
 
-#: ../el-gallery-admin.php:172
+#: ../el-gallery-admin.php:192
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 "Cette option centrera les miniature. Si vous ne l'activez pas, elles seront "
 "alignées à gauche."
 
-#: ../el-gallery-admin.php:179
+#: ../el-gallery-admin.php:199
 msgid "Clickable images: "
 msgstr "Images cliquables : "
 
-#: ../el-gallery-admin.php:180
+#: ../el-gallery-admin.php:200
 msgid ""
 "By activating this, clicking on images in your gallery will open them in a "
 "separate tab. If you are using a lightbox plugin (like <a href=\"http://"
@@ -82,11 +94,11 @@ msgstr ""
 "\">Simple Lightbox</a>), il peut être obligatoire d'activer l'option pour "
 "qu'il fonctionne."
 
-#: ../el-gallery-admin.php:187
+#: ../el-gallery-admin.php:207
 msgid "Mobile Detect: "
 msgstr "Détéction Mobile : "
 
-#: ../el-gallery-admin.php:188
+#: ../el-gallery-admin.php:208
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
@@ -97,11 +109,11 @@ msgstr ""
 "Detect</a>, qu'il est activé et que vous voulez que les images soient "
 "chargées en qualité \"moyenne\" sur les smartphones."
 
-#: ../el-gallery-admin.php:194
+#: ../el-gallery-admin.php:214
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
-#: ../el-gallery.php:107
+#: ../el-gallery.php:108
 msgid ""
 "To fully enjoy this website, it is necesairy to have activatedJavaScript. "
 "Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "

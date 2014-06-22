@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 0.94
+Version: 1.0
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -61,11 +61,13 @@ function el_gallery_settings_page() {
 	$hidden_field = 'el_gallery_submit_hidden';
 	$opt_time = 'el_gallery_time';
 	$opt_width = 'el_gallery_width';
+	$opt_height = 'el_gallery_height';
 	$opt_center = 'el_gallery_center';
 	$opt_links = 'el_gallery_links';
 	$opt_mobile_detect = 'el_gallery_mobile_detect';
 	$data_field_time = 'el_gallery_time';
 	$data_field_width = 'el_gallery_width';
+	$data_field_height = 'el_gallery_height';
 	$data_field_center = 'el_gallery_center';
 	$data_field_links = 'el_gallery_links';
 	$data_field_mobile_detect = 'el_gallery_mobile_detect';
@@ -73,6 +75,7 @@ function el_gallery_settings_page() {
 	// Read in existing option values from database
 	$opt_val_time = get_option( $opt_time );
 	$opt_val_width = get_option( $opt_width );
+	$opt_val_height = get_option( $opt_height );
 	$opt_val_center = get_option( $opt_center );
 	$opt_val_links = get_option( $opt_links );
 	$opt_val_mobile_detect = get_option( $opt_mobile_detect );
@@ -84,6 +87,7 @@ function el_gallery_settings_page() {
 		// Read their posted value
 		$opt_val_time = $_POST[ $data_field_time ];
 		$opt_val_width = $_POST[ $data_field_width ];
+		$opt_val_height = $_POST[ $data_field_height ];
 		$opt_val_center = $_POST[ $data_field_center ];
 		$opt_val_links = $_POST[ $data_field_links ];
 		$opt_val_mobile_detect = $_POST[ $data_field_mobile_detect ];
@@ -91,6 +95,7 @@ function el_gallery_settings_page() {
 		// Save the posted value in the database
 		update_option( $opt_time, $opt_val_time );
 		update_option( $opt_width, $opt_val_width );
+		update_option( $opt_height, $opt_val_height );
 		update_option( $opt_center, $opt_val_center );
 		update_option( $opt_links, $opt_val_links );
 		update_option( $opt_mobile_detect, $opt_val_mobile_detect );
@@ -99,9 +104,10 @@ function el_gallery_settings_page() {
 
 	// Prepare default values upon activate
 	register_activation_hook( __FILE__, 'el_gallery_initiate_options' );
-	function el_gallery_initiate_options($opt_time,$opt_width,$opt_center,$opt_links,$opt_mobile_detect){
+	function el_gallery_initiate_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect){
 		add_option($opt_time, '10');
 		add_option($opt_width, '600');
+		add_option($opt_height, '0.8');
 		add_option($opt_center, 'true');
 		add_option($opt_links, 'true');
 		add_option($opt_mobile_detect, 'false');
@@ -109,9 +115,10 @@ function el_gallery_settings_page() {
 
 	// Remove options upon deactivate
 	register_deactivation_hook( __FILE__, 'el_gallery_remove_options' );
-	function el_gallery_remove_options($opt_time,$opt_width,$opt_center,$opt_links,$opt_mobile_detect){
+	function el_gallery_remove_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect){
 		remove_option($opt_time);
 		remove_option($opt_width);
+		remove_option($opt_height);
 		remove_option($opt_center);
 		remove_option($opt_links);
 		remove_option($opt_mobile_detect);
@@ -145,6 +152,11 @@ function el_gallery_settings_page() {
 
 	?>
 
+<details>
+	<p>EL-Gallery is an elegant ultra-lightweight javascript & css gallery replacement for WordPress.</p>
+    <p>Feel free to rate/review, validate and/or ask questions on <a href="http://wordpress.org/plugins/el-gallery/" target="_blank">this plugin's webpage</a>.</p>
+</details>
+
 <form name="el-gallery_form" method="post" action="">
 	<input type="hidden" name="<?php echo $hidden_field; ?>" value="true">
 
@@ -162,6 +174,14 @@ function el_gallery_settings_page() {
 		<label><?php _e("Transition Width: ", 'el-gallery' ); ?></label>
 		<input type="input" name="<?php echo $data_field_width; ?>" value="<?php echo $opt_val_width; ?>" size="10">
 		<span class="description"><?php _e( "When the window's width is inferior to this number, the thumbnails will go from 8 per line to 5 per line. (to disable: 0)", 'el-gallery' ); ?></span>
+	</div>
+
+	<hr />
+
+	<div class="el-gallery_option">
+		<label><?php _e("Maximum Aspect Ratio: ", 'el-gallery' ); ?></label>
+		<input type="input" name="<?php echo $data_field_height; ?>" value="<?php echo $opt_val_height; ?>" size="10">
+		<span class="description"><?php _e( "This option enables you to avoid tall images being too large. (1:x aspect ratio)", 'el-gallery' ); ?></span>
 	</div>
 
 	<hr />

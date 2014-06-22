@@ -9,7 +9,7 @@ Author: Eric Lowry
 Requires at least: 3.5
 Tested up to: 3.9.1
 Stable tag: 1.0
-Version: 0.94
+Version: 1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,11 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
 
+= Version 1.0 =
+* Added option to set maximum aspect ratio (to avoid tall images being oversized).
+* Added "informations" section to the customisation menu.
+* Fixed donations link.
+
 = Version 0.94 =
 * Thumbnails only appear once the gallery is loaded.
 * Fixed thumbnail centering when page is resized.
@@ -83,4 +88,4 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Donations ==
 
-http://ericlowry.fr/en/
+http://ericlowry.fr/en/development/#el-gallery (donate button to the right)
