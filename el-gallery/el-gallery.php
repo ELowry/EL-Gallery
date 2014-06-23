@@ -3,14 +3,10 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.0
+Version: 1.01
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
-
-
-TODO :
- -> Add an option to choose quality of link-images
 */
 
 add_action('init', 'el_gallery_translation_init');
@@ -29,44 +25,51 @@ if (is_admin()){
 
 
 
-	function prepare_el_gallery_shortcode($type,$atts){
-		extract(shortcode_atts(array(
-			'orderby' => 'menu_order ASC, ID ASC',
-			'include' => '',
-			'id' => $post->ID,
-			'itemtag' => 'dl',
-			'icontag' => 'dt',
-			'captiontag' => 'dd',
-			'columns' => 3,
-			'size' => 'full',
-			'link' => 'file'
-		), $atts));
-
-		if ( wpmd_is_phone() && get_option('el_gallery_mobile_detect') ) {
-			$size = 'medium';
-		}
-
-		if ($type == "thumbnails") {
-			$size = 'thumbnail';
-		}
-
-		$args = array(
-			'post_type' => 'attachment',
-			'post_status' => 'inherit',
-			'post_mime_type' => 'image',
-			'orderby' => $orderby
-		);
-
-		if ( !empty($include) )
-			$args['include'] = $include;
-		else {
-			$args['post_parent'] = $id;
-			$args['numberposts'] = -1;
-		}
-
-		$images = get_posts($args);
-
-		return array($images, $size);
+	function prepare_el_gallery_shortcode($atts){
+		for($i = 0; $i < 3; $i++) { 
+			extract(shortcode_atts(array(
+				'orderby' => 'menu_order ASC, ID ASC',
+				'include' => '',
+				'id' => $post->ID,
+				'itemtag' => 'dl',
+				'icontag' => 'dt',
+				'captiontag' => 'dd',
+				'columns' => 3,
+				'size' => 'full',
+				'link' => 'file'
+			), $atts));
+	
+			if ( wpmd_is_phone() && get_option('el_gallery_mobile_detect') ) {
+				$size = 'medium';
+			}
+			$size_full = $size;
+	
+			if ($i == 1) {
+				$size = 'thumbnail';
+				$size_thumb = $size;
+			}
+	
+			$args = array(
+				'post_type' => 'attachment',
+				'post_status' => 'inherit',
+				'post_mime_type' => 'image',
+				'orderby' => $orderby
+			);
+	
+			if ( !empty($include) ) {
+				$args['include'] = $include;
+			} else {
+				$args['post_parent'] = $id;
+				$args['numberposts'] = -1;
+			}
+	
+			if ($i == 0) {
+				$images_full = get_posts($args);
+			} else {
+				$images_thumb = get_posts($args);
+				return array($images_full, $size_full, $images_thumb, $size_thumb);
+			}
+		};
 
 	};
 
@@ -85,8 +88,7 @@ function el_gallery($atts) {
 		$atts['include'] = $atts['ids'];
 	}
 
-
-	$prepared = prepare_el_gallery_shortcode('',$atts);
+	$prepared = prepare_el_gallery_shortcode($atts);
 	$images = $prepared[0];
 	$size = $prepared[1];
 
@@ -129,9 +131,8 @@ function el_gallery($atts) {
 
 
 
-	$prepared = prepare_el_gallery_shortcode("thumbnails",$atts);
-	$image = $prepared[0];
-	$size = $prepared[1];
+	$image = $prepared[2];
+	$size = $prepared[3];
 
 	if ( wpmd_is_notphone() && sizeof($images) < 8 && $centered == true ) {
 		$thumbs_padding = (100 - sizeof($images) * 12.5) / 2;

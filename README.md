@@ -62,6 +62,9 @@ Changelog
 ---------
 
 
+### Version 1.01
+* PHP optimisation.
+
 ### Version 1.0
 * Added option to set maximum aspect ratio (to avoid tall images being oversized).
 * Added "informations" section to the customisation menu.
