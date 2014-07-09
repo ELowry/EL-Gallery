@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-06-22 20:02+0100\n"
-"PO-Revision-Date: 2014-06-22 20:03+0100\n"
+"POT-Creation-Date: 2014-07-08 23:15+0100\n"
+"PO-Revision-Date: 2014-07-09 08:17+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
-"Language: en_US\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -26,27 +26,27 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
-#: ../el-gallery-admin.php:137
+#: ../el-gallery-admin.php:158
 msgid "settings saved."
 msgstr "réglages enregistrés."
 
-#: ../el-gallery-admin.php:149
+#: ../el-gallery-admin.php:177
 msgid "EL-Gallery Plugin Settings"
 msgstr "Réglages de l'Extension EL-Gallery"
 
-#: ../el-gallery-admin.php:166
+#: ../el-gallery-admin.php:194
 msgid "Slide Duration: "
 msgstr "Durée des Diapositives : "
 
-#: ../el-gallery-admin.php:168
+#: ../el-gallery-admin.php:196
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr "Ceci correspond à la durée en secondes des diapositives. (Minimum : 2)"
 
-#: ../el-gallery-admin.php:174
+#: ../el-gallery-admin.php:202
 msgid "Transition Width: "
 msgstr "Largeur de Transition : "
 
-#: ../el-gallery-admin.php:176
+#: ../el-gallery-admin.php:204
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
@@ -54,11 +54,11 @@ msgstr ""
 "Lorsque la largeur de la fenêtre est inférieure à ce nombre, les miniatures "
 "passeront de 8 par ligne à 5 par ligne. (pour desactiver : 0)"
 
-#: ../el-gallery-admin.php:182
+#: ../el-gallery-admin.php:210
 msgid "Maximum Aspect Ratio: "
 msgstr "Format Maximum :"
 
-#: ../el-gallery-admin.php:184
+#: ../el-gallery-admin.php:212
 msgid ""
 "This option enables you to avoid tall images being too large. (1:x aspect "
 "ratio)"
@@ -66,22 +66,58 @@ msgstr ""
 "Cette option vous permet d'éviter que les iamges verticales soient trop "
 "grandes. (ratio d'aspect 1:x)"
 
-#: ../el-gallery-admin.php:191
+#: ../el-gallery-admin.php:219
+msgid "Navigation Arrows: "
+msgstr "Flèches de Navigation :"
+
+#: ../el-gallery-admin.php:220
+msgid "Adds arrows on the right and left side of slides to navigate easily."
+msgstr ""
+"Ajoute des flèche à gauche et à droite des diapositives pour naviguer plus "
+"facilement."
+
+#: ../el-gallery-admin.php:224
+msgid "Background Color: "
+msgstr "Couleur de Fond :"
+
+#: ../el-gallery-admin.php:226
+msgid ""
+"If your posts' backgrounds are not white, please input the <a href='http://"
+"www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their "
+"background color."
+msgstr ""
+"Si l'arrière-plan de vos posts n'est pas blanc, veuillez indiquer son <a "
+"href='http://www.colorpicker.com/' target='_blank'>code couleur hexadecimal</"
+"a>."
+
+#: ../el-gallery-admin.php:231
+msgid "White Arrows: "
+msgstr "Flèches Blanches :"
+
+#: ../el-gallery-admin.php:232
+msgid ""
+"If the arrowsare too dark to be visible, activate this option to make them "
+"white."
+msgstr ""
+"Si les flèches sont trop peu visibles sur un fond sombre, activez cette "
+"option pour les rendre blanches."
+
+#: ../el-gallery-admin.php:242
 msgid "Centered Thumbnails: "
 msgstr "Miniatures Centrées : "
 
-#: ../el-gallery-admin.php:192
+#: ../el-gallery-admin.php:243
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 "Cette option centrera les miniature. Si vous ne l'activez pas, elles seront "
 "alignées à gauche."
 
-#: ../el-gallery-admin.php:199
+#: ../el-gallery-admin.php:250
 msgid "Clickable images: "
 msgstr "Images cliquables : "
 
-#: ../el-gallery-admin.php:200
+#: ../el-gallery-admin.php:251
 msgid ""
 "By activating this, clicking on images in your gallery will open them in a "
 "separate tab. If you are using a lightbox plugin (like <a href=\"http://"
@@ -94,11 +130,11 @@ msgstr ""
 "\">Simple Lightbox</a>), il peut être obligatoire d'activer l'option pour "
 "qu'il fonctionne."
 
-#: ../el-gallery-admin.php:207
+#: ../el-gallery-admin.php:258
 msgid "Mobile Detect: "
 msgstr "Détéction Mobile : "
 
-#: ../el-gallery-admin.php:208
+#: ../el-gallery-admin.php:259
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
@@ -109,11 +145,11 @@ msgstr ""
 "Detect</a>, qu'il est activé et que vous voulez que les images soient "
 "chargées en qualité \"moyenne\" sur les smartphones."
 
-#: ../el-gallery-admin.php:214
+#: ../el-gallery-admin.php:265
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
-#: ../el-gallery.php:108
+#: ../el-gallery.php:128
 msgid ""
 "To fully enjoy this website, it is necesairy to have activatedJavaScript. "
 "Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "

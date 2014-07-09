@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.01
+Version: 1.1
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -12,9 +12,25 @@ License: GPL2
 
 	var duration = data.duration,
 		switch_width = data.switch_width,
-		centered = data.centered
-		max_height = data.max_height;
-	
+		max_height = data.max_height,
+		nav = data.nav,
+		nav_color = data.nav_color,
+		nav_light = data.nav_light,
+		centered = data.centered;
+
+	function convertHex(hex,opacity){
+		hex = hex.replace('#','');
+		if (hex.length < 6) {
+			hex = hex.substring(0,1) + hex.substring(0,1) + hex.substring(1,2) + hex.substring(1,2) + hex.substring(2,3) + hex.substring(2,3);
+		}
+		r = parseInt(hex.substring(0,2), 16);
+		g = parseInt(hex.substring(2,4), 16);
+		b = parseInt(hex.substring(4,6), 16);
+
+		result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+		return result;
+	}
+
 	function variable_css(switch_width){
 		if ($(window).width() < switch_width ) {
 			$('figure.el_gallery figcaption.el_gallery-thumbnails_wrapper img').css({'width': '16%', 'margin': '0 2%'});
@@ -33,7 +49,7 @@ License: GPL2
 		var curr_gallery = '.el_gallery_number-' + gallery_number;
 
 
-		function start_slideshow(duration,centered,max_height,curr_gallery) {
+		function start_slideshow(duration,centered,nav,nav_color,nav_light,max_height,curr_gallery) {
 
 			// This function is the slideshow loop itsself
 			function startloop(cntmax,cnt,type,duration,max_height,curr_gallery) {
@@ -113,6 +129,51 @@ License: GPL2
 					startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
 				}
 			});
+			
+			// We setup the arrow functions
+			if (nav == 'true') {
+				$('.el_nav',curr_gallery).css('display', 'block');
+				if (typeof nav_color.foo != 'undefined') {
+					var left_gradient = 'linear-gradient(to left, ' + convertHex(nav_color,0) + ', #' + nav_color.replace('#','') + ')';
+					var right_gradient = 'linear-gradient(to right, ' + convertHex(nav_color,0).replace('#','') + ', #' + nav_color.replace('#','') + ')';
+					$('.el_nav-left',curr_gallery).css('background', left_gradient );
+					$('.el_nav-right',curr_gallery).css('background', right_gradient );
+				}
+				if (nav_light) {
+					if (nav_light == 'true') {
+						$('.el_nav-left span',curr_gallery).css('border-right', '40px solid #fff' );
+						$('.el_nav-right span',curr_gallery).css('border-left', '40px solid #fff' );
+					}
+				}
+				$('.el_nav-left',curr_gallery).bind("click", function(event) {
+					cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
+					var id = $('.el_gallery-thumbnails_wrapper img.current',curr_gallery).attr('id');
+					id = id.substr(id.length - 2);
+					cnt = id.replace(/^-+/i, '') - 1;
+					if (cnt == -1) {
+						cnt = cntmax;
+					}
+					if ( $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).css('display') !== 'block' ) { // This prevents the current image from toggling when its thumbnail is clicked
+						clearInterval(loop_interval);
+						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
+					}
+					return false;
+				});
+				$('.el_nav-right',curr_gallery).bind("click", function(event) {
+					cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
+					var id = $('.el_gallery-thumbnails_wrapper img.current',curr_gallery).attr('id');
+					id = id.substr(id.length - 2);
+					cnt = parseInt(id.replace(/^-+/i, '')) + 1;
+					if (cnt > cntmax) {
+						cnt = 0;
+					}
+					if ( $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).css('display') !== 'block' ) { // This prevents the current image from toggling when its thumbnail is clicked
+						clearInterval(loop_interval);
+						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
+					}
+					return false;
+				});
+			}
 
 
 
@@ -180,18 +241,18 @@ License: GPL2
 
 
 		// We preload the "loading" gif
-		function preload(arrayOfImages,duration,max_height,curr_gallery) {
+		function preload(arrayOfImages,duration,centered,nav,nav_color,nav_light,max_height,curr_gallery) {
 			$(arrayOfImages).each(function(index){
 				$('<img />')
 				.attr('src', arrayOfImages[index])
 				.load(function(){
-					start_slideshow(duration,centered,max_height,curr_gallery);
+					start_slideshow(duration,centered,nav,nav_color,nav_light,max_height,curr_gallery);
 				});
 			});
 		}
 		preload([
 			'http://ericlowry.fr/en/wp-content/uploads/sites/3/2014/05/loadingGif.gif'
-		],duration,max_height,curr_gallery);
+		],duration,centered,nav,nav_color,nav_light,max_height,curr_gallery);
 
 
 		gallery_number++;

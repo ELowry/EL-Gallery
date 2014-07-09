@@ -8,8 +8,8 @@ Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 1.01
-Version: 1.01
+Stable tag: 1.1
+Version: 1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,7 @@ Once installed, you will find the configuration menu for EL-Gallery in the “Ap
 There you will be able to modify the duration of each slide as well as a few other functions:
 
 * EL-Gallery uses responsive design, and you may wish to choose a specific page width at which the thumbnails will go from 8 per line to 5 per line.
+* You can deactivate the navigation arrows for a lighter, simpler aesthetic.
 * You may wish to disable the links on a gallery’s images.
 * If you have installed the [WP Mobile Detect](http://wordpress.org/plugins/wp-mobile-detect/ "Plugin : WP Mobile Detect") plugin, don’t forget to activate the corresponding option so images may display in a lighter format when on mobile devices.
 
@@ -58,6 +59,11 @@ There you will be able to modify the duration of each slide as well as a few oth
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
+
+= Version 1.1 =
+* Added navigation arrows.
+* Added option to change background-color for navigation arrows.
+* Added option to use white navigation arrows (for dark backgrounds).
 
 = Version 1.01 =
 * PHP optimisation.

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-06-22 20:00+0100\n"
-"PO-Revision-Date: 2014-06-22 20:00+0100\n"
+"POT-Creation-Date: 2014-07-08 23:14+0100\n"
+"PO-Revision-Date: 2014-07-08 23:14+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: en_US\n"
@@ -26,55 +26,85 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: ../el-gallery-admin.php:137
+#: ../el-gallery-admin.php:158
 msgid "settings saved."
 msgstr ""
 
-#: ../el-gallery-admin.php:149
+#: ../el-gallery-admin.php:177
 msgid "EL-Gallery Plugin Settings"
 msgstr ""
 
-#: ../el-gallery-admin.php:166
+#: ../el-gallery-admin.php:194
 msgid "Slide Duration: "
 msgstr ""
 
-#: ../el-gallery-admin.php:168
+#: ../el-gallery-admin.php:196
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr ""
 
-#: ../el-gallery-admin.php:174
+#: ../el-gallery-admin.php:202
 msgid "Transition Width: "
 msgstr ""
 
-#: ../el-gallery-admin.php:176
+#: ../el-gallery-admin.php:204
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
 msgstr ""
 
-#: ../el-gallery-admin.php:182
+#: ../el-gallery-admin.php:210
 msgid "Maximum Aspect Ratio: "
 msgstr ""
 
-#: ../el-gallery-admin.php:184
+#: ../el-gallery-admin.php:212
 msgid ""
-"Maximum aspect ratio, to avoid images being too tall. (1:x asoect ratio)"
+"This option enables you to avoid tall images being too large. (1:x aspect "
+"ratio)"
 msgstr ""
 
-#: ../el-gallery-admin.php:191
+#: ../el-gallery-admin.php:219
+msgid "Navigation Arrows: "
+msgstr ""
+
+#: ../el-gallery-admin.php:220
+msgid "Adds arrows on the right and left side of slides to navigate easily."
+msgstr ""
+
+#: ../el-gallery-admin.php:224
+msgid "Background Color: "
+msgstr ""
+
+#: ../el-gallery-admin.php:226
+msgid ""
+"If your posts' backgrounds are not white, please input the <a href='http://"
+"www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their "
+"background color."
+msgstr ""
+
+#: ../el-gallery-admin.php:231
+msgid "White Arrows: "
+msgstr ""
+
+#: ../el-gallery-admin.php:232
+msgid ""
+"If the arrowsare too dark to be visible, activate this option to make them "
+"white."
+msgstr ""
+
+#: ../el-gallery-admin.php:242
 msgid "Centered Thumbnails: "
 msgstr ""
 
-#: ../el-gallery-admin.php:192
+#: ../el-gallery-admin.php:243
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 
-#: ../el-gallery-admin.php:199
+#: ../el-gallery-admin.php:250
 msgid "Clickable images: "
 msgstr ""
 
-#: ../el-gallery-admin.php:200
+#: ../el-gallery-admin.php:251
 msgid ""
 "By activating this, clicking on images in your gallery will open them in a "
 "separate tab. If you are using a lightbox plugin (like <a href=\"http://"
@@ -82,22 +112,22 @@ msgid ""
 "a>), this might be necessairy for it to function."
 msgstr ""
 
-#: ../el-gallery-admin.php:207
+#: ../el-gallery-admin.php:258
 msgid "Mobile Detect: "
 msgstr ""
 
-#: ../el-gallery-admin.php:208
+#: ../el-gallery-admin.php:259
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
 "and want images to be loaded in \"medium\" resolution on smartphones."
 msgstr ""
 
-#: ../el-gallery-admin.php:214
+#: ../el-gallery-admin.php:265
 msgid "Save Changes"
 msgstr ""
 
-#: ../el-gallery.php:108
+#: ../el-gallery.php:128
 msgid ""
 "To fully enjoy this website, it is necesairy to have activatedJavaScript. "
 "Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "

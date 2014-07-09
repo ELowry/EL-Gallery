@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.01
+Version: 1.1
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -62,12 +62,18 @@ function el_gallery_settings_page() {
 	$opt_time = 'el_gallery_time';
 	$opt_width = 'el_gallery_width';
 	$opt_height = 'el_gallery_height';
+	$opt_nav = 'el_gallery_nav';
+	$opt_nav_color = 'el_gallery_nav_color';
+	$opt_nav_light = 'el_gallery_nav_light';
 	$opt_center = 'el_gallery_center';
 	$opt_links = 'el_gallery_links';
 	$opt_mobile_detect = 'el_gallery_mobile_detect';
 	$data_field_time = 'el_gallery_time';
 	$data_field_width = 'el_gallery_width';
 	$data_field_height = 'el_gallery_height';
+	$data_field_nav = 'el_gallery_nav';
+	$data_field_nav_color = 'el_gallery_nav_color';
+	$data_field_nav_light = 'el_gallery_nav_light';
 	$data_field_center = 'el_gallery_center';
 	$data_field_links = 'el_gallery_links';
 	$data_field_mobile_detect = 'el_gallery_mobile_detect';
@@ -76,6 +82,9 @@ function el_gallery_settings_page() {
 	$opt_val_time = get_option( $opt_time );
 	$opt_val_width = get_option( $opt_width );
 	$opt_val_height = get_option( $opt_height );
+	$opt_val_nav = get_option( $opt_nav );
+	$opt_val_nav_color = get_option( $opt_nav_color );
+	$opt_val_nav_light = get_option( $opt_nav_light );
 	$opt_val_center = get_option( $opt_center );
 	$opt_val_links = get_option( $opt_links );
 	$opt_val_mobile_detect = get_option( $opt_mobile_detect );
@@ -88,6 +97,9 @@ function el_gallery_settings_page() {
 		$opt_val_time = $_POST[ $data_field_time ];
 		$opt_val_width = $_POST[ $data_field_width ];
 		$opt_val_height = $_POST[ $data_field_height ];
+		$opt_val_nav = $_POST[ $data_field_nav ];
+		$opt_val_nav_color = $_POST[ $data_field_nav_color ];
+		$opt_val_nav_light = $_POST[ $data_field_nav_light ];
 		$opt_val_center = $_POST[ $data_field_center ];
 		$opt_val_links = $_POST[ $data_field_links ];
 		$opt_val_mobile_detect = $_POST[ $data_field_mobile_detect ];
@@ -96,6 +108,9 @@ function el_gallery_settings_page() {
 		update_option( $opt_time, $opt_val_time );
 		update_option( $opt_width, $opt_val_width );
 		update_option( $opt_height, $opt_val_height );
+		update_option( $opt_nav, $opt_val_nav );
+		update_option( $opt_nav_color, $opt_val_nav_color );
+		update_option( $opt_nav_light, $opt_val_nav_light );
 		update_option( $opt_center, $opt_val_center );
 		update_option( $opt_links, $opt_val_links );
 		update_option( $opt_mobile_detect, $opt_val_mobile_detect );
@@ -108,6 +123,9 @@ function el_gallery_settings_page() {
 		add_option($opt_time, '10');
 		add_option($opt_width, '600');
 		add_option($opt_height, '0.8');
+		add_option($opt_nav, 'true');
+		add_option($opt_nav_color, 'fff');
+		add_option($opt_nav_light, 'false');
 		add_option($opt_center, 'true');
 		add_option($opt_links, 'true');
 		add_option($opt_mobile_detect, 'false');
@@ -119,6 +137,9 @@ function el_gallery_settings_page() {
 		remove_option($opt_time);
 		remove_option($opt_width);
 		remove_option($opt_height);
+		remove_option($opt_nav);
+		remove_option($opt_nav_color);
+		remove_option($opt_nav_light);
 		remove_option($opt_center);
 		remove_option($opt_links);
 		remove_option($opt_mobile_detect);
@@ -139,6 +160,13 @@ function el_gallery_settings_page() {
 <?php
 
 	}
+
+	// We load the admin-specific javascript
+	wp_enqueue_script( 'el-gallery_admin_script', plugins_url('/js/el-gallery_admin.js', __FILE__ ) );
+	wp_localize_script( 'el-gallery_admin_script', 'el_gallery_admin_parameters',array(
+		'nav' => $opt_val_nav,
+		'nav_color' => $opt_val_nav_color
+		));
 
 	// Now display the settings editing screen
 
@@ -182,6 +210,29 @@ function el_gallery_settings_page() {
 		<label><?php _e("Maximum Aspect Ratio: ", 'el-gallery' ); ?></label>
 		<input type="input" name="<?php echo $data_field_height; ?>" value="<?php echo $opt_val_height; ?>" size="10">
 		<span class="description"><?php _e( "This option enables you to avoid tall images being too large. (1:x aspect ratio)", 'el-gallery' ); ?></span>
+	</div>
+
+	<hr />
+
+	<div class="el-gallery_option el-admin_toggler">
+		<input type="checkbox" class="el-admin_toggler_box" name="<?php echo $data_field_nav; ?>" value="true" <?php if($opt_val_nav == true){echo 'checked="checked"';}?>>
+		<label><?php _e("Navigation Arrows: ", 'el-gallery' ); ?></label>
+		<span class="description"><?php _e( 'Adds arrows on the right and left side of slides to navigate easily.', 'el-gallery' ); ?></span>
+
+        <div class="el-admin_toggle">
+            <div class="el-gallery_option">
+                <label><?php _e("Background Color: ", 'el-gallery' ); ?></label>
+                <input type="input" name="<?php echo $data_field_nav_color; ?>" value="<?php echo $opt_val_nav_color; ?>" size="7">
+                <span class="description"><?php _e( "If your posts' backgrounds are not white, please input the <a href='http://www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their background color.", 'el-gallery' ); ?></span>
+            </div>
+        
+            <div class="el-gallery_option">
+                <input type="checkbox" name="<?php echo $data_field_nav_light; ?>" value="true" <?php if($opt_val_nav_light == true){echo 'checked="checked"';}?>>
+                <label><?php _e("White Arrows: ", 'el-gallery' ); ?></label>
+                <span class="description"><?php _e( 'If the arrowsare too dark to be visible, activate this option to make them white.', 'el-gallery' ); ?></span>
+            </div>
+        </div>
+
 	</div>
 
 	<hr />
