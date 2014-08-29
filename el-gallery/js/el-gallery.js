@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.1
+Version: 1.2
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -84,7 +84,7 @@ License: GPL2
 					var image = new Image();
 					image.onload = function () {
 						setTimeout(function(){
-							$('.el_gallery-slideshow_wrapper',curr_gallery).css('background-image','none');
+							$('.el_gallery-slideshow_wrapper .el_loading',curr_gallery).css('display','none');
 							$('.el_gallery-thumbnails_wrapper img',curr_gallery).css('height', 'auto');
 							startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
 						}, 1000); // the image has loaded, we display it

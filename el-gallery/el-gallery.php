@@ -3,15 +3,10 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.1
+Version: 1.2
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
-
-
-To Do :
---> Add options to change background color and arrow color
-
 */
 
 // We initiate the translation
@@ -20,6 +15,8 @@ add_action('init', 'el_gallery_translation_init');
 wp_enqueue_script( 'jquery' );
 // We initiate the css styling
 wp_enqueue_style( 'el-gallery_style', plugins_url('/css/el-gallery.css', __FILE__ ) );
+// We call upon Font Awsome
+wp_enqueue_style( 'el-gallery_font_awsome', plugins_url('/css/font-awesome.min.css', __FILE__ ) );
 
 // We call the translation
 function el_gallery_translation_init() {
@@ -129,7 +126,7 @@ function el_gallery($atts) {
 
 	$print_gallery .= '<div class="el_gallery-slideshow_wrapper">';
 
-	$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span>&lt;</span></a><a href="#" class="el_nav-right"><span>&gt;</span></a></div>';
+	$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="fa fa-cog fa-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
 
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;

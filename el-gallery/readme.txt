@@ -3,13 +3,13 @@
 Contributors: Eric Lowry
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/en/development/#el-gallery
-Tags: wp, gallery, css3, jQuery, shortcode, responsive, simple
+Tags: wp, gallery, css3, jQuery, shortcode, responsive, simple, fontawsome
 Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 1.1
-Version: 1.1
+Tested up to: 3.9.2
+Stable tag: 1.2
+Version: 1.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,9 @@ If you have any suggestions or questions, please [contact me](http://ericlowry.f
 
 This plugin is designed to function on any type of machine, and for it to best function on mobile devices, we reccomend you install the [WP Mobile Detect](http://wordpress.org/plugins/wp-mobile-detect/ "Plugin : WP Mobile Detect") plugin.
 
-EL-Gallery is currently available in both English and French.
+EL-Gallery is currently available in both English and French. If you wish to help translate it into another language, please [contact me](http://ericlowry.fr/en/contact/ "Contact Eric Lowry (Plugin Author)").
+
+EL-Gallery uses [Font Awsome](http://fortawesome.github.io/Font-Awesome/ "The Font Awsome official website") icones; you may wish to consult the [Font Awsome Lisence](http://fortawesome.github.io/Font-Awesome/license/ "Font Awsome Lisence Page").
 
 = Configuration =
 Once installed, you will find the configuration menu for EL-Gallery in the “Appearance” section of  your wordpress administration page.
@@ -40,7 +42,6 @@ Once installed, you will find the configuration menu for EL-Gallery in the “Ap
 There you will be able to modify the duration of each slide as well as a few other functions:
 
 * EL-Gallery uses responsive design, and you may wish to choose a specific page width at which the thumbnails will go from 8 per line to 5 per line.
-* You can deactivate the navigation arrows for a lighter, simpler aesthetic.
 * You may wish to disable the links on a gallery’s images.
 * If you have installed the [WP Mobile Detect](http://wordpress.org/plugins/wp-mobile-detect/ "Plugin : WP Mobile Detect") plugin, don’t forget to activate the corresponding option so images may display in a lighter format when on mobile devices.
 
@@ -59,6 +60,10 @@ There you will be able to modify the duration of each slide as well as a few oth
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
+
+= Version 1.2 =
+* Added Font Awsome 4.2 support.
+* Added a new Font Awsome loading icon.
 
 = Version 1.1 =
 * Added navigation arrows.

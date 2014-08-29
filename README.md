@@ -4,13 +4,13 @@ EL-Gallery
 Contributors: Eric Lowry<br />
 Plugin Name: EL-Gallery<br />
 Plugin URI: http://ericlowry.fr/en/development/#el-gallery<br />
-Tags: wp, wordpress, gallery, css3, jQuery, shortcode, responsive, simple<br />
+Tags: wp, wordpress, gallery, css3, jQuery, shortcode, responsive, simple, fontawsome<br />
 Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
-Tested up to: 3.9.1<br />
-Stable tag: 1.1<br />
-Version: 1.1<br />
+Tested up to: 3.9.2<br />
+Stable tag: 1.2<br />
+Version: 1.2<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,11 +29,13 @@ I am not a professional developer, but there were no plugins that were both simp
 
 EL-Gallery should function properly on any browser that supports both CSS3 and javascript.
 
-If you have any suggestions or questions, please [contact me](http://ericlowry.fr/en/contact/ "Contact Eric Lowry (Plugin Author)") directly, or propose changes on [this project's GitHub page](https://github.com/ELowry/EL-Gallery "EL-Gallery on GitHub").
+If you have any suggestions or questions, please <a href="http://ericlowry.fr/en/contact/ "Contact Eric Lowry (Plugin Author)" targer="_blank">contact me</a> directly, or propose changes on [this project's GitHub page](https://github.com/ELowry/EL-Gallery "EL-Gallery on GitHub").
 
-This plugin is designed to function on any type of machine, and for it to best function on mobile devices, we reccomend you install the [WP Mobile Detect](http://wordpress.org/plugins/wp-mobile-detect/ "Plugin : WP Mobile Detect") plugin.
+This plugin is designed to function on any type of machine, and for it to best function on mobile devices, we reccomend you install the <a href="http://wordpress.org/plugins/wp-mobile-detect/" "Plugin : WP Mobile Detect" targer="_blank">WP Mobile Detect</a> plugin.
 
-EL-Gallery is currently available in both English and French.
+EL-Gallery is currently available in both English and French. If you wish to help translate it into another language, please <a href="http://ericlowry.fr/en/contact/ "Contact Eric Lowry (Plugin Author)" targer="_blank">contact me</a>.
+
+EL-Gallery uses <a href="http://fortawesome.github.io/Font-Awesome/" "The Font Awsome official website" target="_blank">Font Awsome</a> icones; you may wish to consult the <a href="http://fortawesome.github.io/Font-Awesome/license/" "Font Awsome Lisence Page" target="_blank">Font Awsome Lisence</a>.
 
 ### Configuration
 Once installed, you will find the configuration menu for EL-Gallery in the “Appearance” section of  your wordpress administration page.
@@ -42,7 +44,7 @@ There you will be able to modify the duration of each slide as well as a few oth
 * EL-Gallery uses responsive design, and you may wish to choose a specific page width at which the thumbnails will go from 8 per line to 5 per line.
 * You can deactivate the navigation arrows for a lighter, simpler aesthetic.
 * You may wish to disable the links on a gallery’s images.
-* If you have installed the [WP Mobile Detect](http://wordpress.org/plugins/wp-mobile-detect/ "Plugin : WP Mobile Detect") plugin, don’t forget to activate the corresponding option so images may display in a lighter format when on mobile devices.
+* If you have installed the <a href="http://wordpress.org/plugins/wp-mobile-detect/" "Plugin : WP Mobile Detect" target="_blank">WP Mobile Detect</a> plugin, don’t forget to activate the corresponding option so images may display in a lighter format when on mobile devices.
 
 ### Examples
 
@@ -62,6 +64,10 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+
+### Version 1.2
+* Added Font Awsome 4.2 support.
+* Added a new Font Awsome loading icon
 
 ### Version 1.1
 * Added navigation arrows.
