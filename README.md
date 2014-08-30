@@ -65,6 +65,9 @@ Changelog
 ---------
 
 
+### Version 1.2.1
+* Fixed an eventual bug linked to using WP Mobile Detect.
+
 ### Version 1.2
 * Added Font Awsome 4.2 support.
 * Added a new Font Awsome loading icon
