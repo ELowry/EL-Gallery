@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.1
+Version: 1.2.2
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -68,6 +68,7 @@ function el_gallery_settings_page() {
 	$opt_center = 'el_gallery_center';
 	$opt_links = 'el_gallery_links';
 	$opt_mobile_detect = 'el_gallery_mobile_detect';
+	$opt_icon = 'el_gallery_icon';
 	$data_field_time = 'el_gallery_time';
 	$data_field_width = 'el_gallery_width';
 	$data_field_height = 'el_gallery_height';
@@ -77,6 +78,7 @@ function el_gallery_settings_page() {
 	$data_field_center = 'el_gallery_center';
 	$data_field_links = 'el_gallery_links';
 	$data_field_mobile_detect = 'el_gallery_mobile_detect';
+	$data_field_icon = 'el_gallery_icon';
 
 	// Read in existing option values from database
 	$opt_val_time = get_option( $opt_time );
@@ -88,6 +90,7 @@ function el_gallery_settings_page() {
 	$opt_val_center = get_option( $opt_center );
 	$opt_val_links = get_option( $opt_links );
 	$opt_val_mobile_detect = get_option( $opt_mobile_detect );
+	$opt_val_icon = get_option( $opt_icon );
 
 
 	// See if the user has posted us some information
@@ -103,6 +106,7 @@ function el_gallery_settings_page() {
 		$opt_val_center = $_POST[ $data_field_center ];
 		$opt_val_links = $_POST[ $data_field_links ];
 		$opt_val_mobile_detect = $_POST[ $data_field_mobile_detect ];
+		$opt_val_icon = $_POST[ $data_field_icon ];
 
 		// Save the posted value in the database
 		update_option( $opt_time, $opt_val_time );
@@ -114,12 +118,13 @@ function el_gallery_settings_page() {
 		update_option( $opt_center, $opt_val_center );
 		update_option( $opt_links, $opt_val_links );
 		update_option( $opt_mobile_detect, $opt_val_mobile_detect );
+		update_option( $opt_icon, $opt_val_icon );
 
 		// Put a settings updated message on the screen
 
 	// Prepare default values upon activate
 	register_activation_hook( __FILE__, 'el_gallery_initiate_options' );
-	function el_gallery_initiate_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect){
+	function el_gallery_initiate_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect,$opt_icon){
 		add_option($opt_time, '10');
 		add_option($opt_width, '600');
 		add_option($opt_height, '0.8');
@@ -129,11 +134,12 @@ function el_gallery_settings_page() {
 		add_option($opt_center, 'true');
 		add_option($opt_links, 'true');
 		add_option($opt_mobile_detect, 'false');
+		add_option($opt_icon, 'cog');
 	}
 
 	// Remove options upon deactivate
 	register_deactivation_hook( __FILE__, 'el_gallery_remove_options' );
-	function el_gallery_remove_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect){
+	function el_gallery_remove_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect,$opt_icon){
 		remove_option($opt_time);
 		remove_option($opt_width);
 		remove_option($opt_height);
@@ -143,6 +149,7 @@ function el_gallery_settings_page() {
 		remove_option($opt_center);
 		remove_option($opt_links);
 		remove_option($opt_mobile_detect);
+		remove_option($opt_icon);
 	}
 
 	// Error Correction
@@ -246,9 +253,20 @@ function el_gallery_settings_page() {
 	<hr />
 
 	<div class="el-gallery_option">
-		<input type="checkbox" name="<?php echo $data_field_links; ?>" value="true" <?php if($opt_val_links == true){echo 'checked="checked"';}?>>
+		<input type="checkbox" name="<?php echo $data_field_center; ?>" value="true" <?php if($opt_val_center == true){echo 'checked="checked"';}?>>
+		<label><?php _e("Centered Thumbnails: ", 'el-gallery' ); ?></label>
+		<span class="description"><?php _e( 'This will center thumbnails. If deactivated, they will align to the left.', 'el-gallery' ); ?></span>
+	</div>
+
+	<hr />
+
+	<div class="el-gallery_option">
 		<label><?php _e("Clickable images: ", 'el-gallery' ); ?></label>
-		<span class="description"><?php _e( 'By activating this, clicking on images in your gallery will open them in a separate tab. If you are using a lightbox plugin (like <a href="http://wordpress.org/plugins/simple-lightbox/" target="_blank">Simple Lightbox</a>), this might be necessairy for it to function.', 'el-gallery' ); ?></span>
+		<span class="description"><?php _e( 'Choose a loading icon : ', 'el-gallery' ); ?>
+			<i class="fa fa-cog fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="cog" <?php if($opt_val_icon == "cog"){echo 'checked="checked"';}?>>
+			<i class="fa fa-spinner fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
+			<i class="fa fa-refresh fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="refresh" <?php if($opt_val_icon == "refresh"){echo 'checked="checked"';}?>>
+		</span>
 	</div>
 
 	<hr />

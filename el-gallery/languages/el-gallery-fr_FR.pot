@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-08-30 19:30+0100\n"
-"PO-Revision-Date: 2014-08-30 19:30+0100\n"
+"POT-Creation-Date: 2014-08-30 20:29+0100\n"
+"PO-Revision-Date: 2014-08-30 20:29+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: fr\n"
@@ -26,27 +26,27 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
-#: ../el-gallery-admin.php:158
+#: ../el-gallery-admin.php:165
 msgid "settings saved."
 msgstr "réglages enregistrés."
 
-#: ../el-gallery-admin.php:177
+#: ../el-gallery-admin.php:184
 msgid "EL-Gallery Plugin Settings"
 msgstr "Réglages de l'Extension EL-Gallery"
 
-#: ../el-gallery-admin.php:194
+#: ../el-gallery-admin.php:201
 msgid "Slide Duration: "
 msgstr "Durée des Diapositives : "
 
-#: ../el-gallery-admin.php:196
+#: ../el-gallery-admin.php:203
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr "Ceci correspond à la durée en secondes des diapositives. (Minimum : 2)"
 
-#: ../el-gallery-admin.php:202
+#: ../el-gallery-admin.php:209
 msgid "Transition Width: "
 msgstr "Largeur de Transition : "
 
-#: ../el-gallery-admin.php:204
+#: ../el-gallery-admin.php:211
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
@@ -54,33 +54,33 @@ msgstr ""
 "Lorsque la largeur de la fenêtre est inférieure à ce nombre, les miniatures "
 "passeront de 8 par ligne à 5 par ligne. (pour desactiver : 0)"
 
-#: ../el-gallery-admin.php:210
+#: ../el-gallery-admin.php:217
 msgid "Maximum Aspect Ratio: "
 msgstr "Format Maximum :"
 
-#: ../el-gallery-admin.php:212
+#: ../el-gallery-admin.php:219
 msgid ""
 "This option enables you to avoid tall images being too large. (1:x aspect "
 "ratio)"
 msgstr ""
-"Cette option vous permet d'éviter que les iamges verticales soient trop "
+"Cette option vous permet d'éviter que les images verticales soient trop "
 "grandes. (ratio d'aspect 1:x)"
 
-#: ../el-gallery-admin.php:219
+#: ../el-gallery-admin.php:226
 msgid "Navigation Arrows: "
 msgstr "Flèches de Navigation :"
 
-#: ../el-gallery-admin.php:220
+#: ../el-gallery-admin.php:227
 msgid "Adds arrows on the right and left side of slides to navigate easily."
 msgstr ""
 "Ajoute des flèche à gauche et à droite des diapositives pour naviguer plus "
 "facilement."
 
-#: ../el-gallery-admin.php:224
+#: ../el-gallery-admin.php:231
 msgid "Background Color: "
 msgstr "Couleur de Fond :"
 
-#: ../el-gallery-admin.php:226
+#: ../el-gallery-admin.php:233
 msgid ""
 "If your posts' backgrounds are not white, please input the <a href='http://"
 "www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their "
@@ -90,11 +90,11 @@ msgstr ""
 "href='http://www.colorpicker.com/' target='_blank'>code couleur hexadecimal</"
 "a>."
 
-#: ../el-gallery-admin.php:231
+#: ../el-gallery-admin.php:238
 msgid "White Arrows: "
 msgstr "Flèches Blanches :"
 
-#: ../el-gallery-admin.php:232
+#: ../el-gallery-admin.php:239
 msgid ""
 "If the arrowsare too dark to be visible, activate this option to make them "
 "white."
@@ -102,39 +102,30 @@ msgstr ""
 "Si les flèches sont trop peu visibles sur un fond sombre, activez cette "
 "option pour les rendre blanches."
 
-#: ../el-gallery-admin.php:242
+#: ../el-gallery-admin.php:249 ../el-gallery-admin.php:257
 msgid "Centered Thumbnails: "
 msgstr "Miniatures Centrées : "
 
-#: ../el-gallery-admin.php:243
+#: ../el-gallery-admin.php:250 ../el-gallery-admin.php:258
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 "Cette option centrera les miniature. Si vous ne l'activez pas, elles seront "
 "alignées à gauche."
 
-#: ../el-gallery-admin.php:250
+#: ../el-gallery-admin.php:264
 msgid "Clickable images: "
 msgstr "Images cliquables : "
 
-#: ../el-gallery-admin.php:251
-msgid ""
-"By activating this, clicking on images in your gallery will open them in a "
-"separate tab. If you are using a lightbox plugin (like <a href=\"http://"
-"wordpress.org/plugins/simple-lightbox/\" target=\"_blank\">Simple Lightbox</"
-"a>), this might be necessairy for it to function."
-msgstr ""
-"En activant ceci, cliquer sur les images de votre galerie les ouvrira dans "
-"un onglet séparé. Si vous utilisez une extension de \"lightbox\" (tel que <a "
-"href=\"http://wordpress.org/plugins/simple-lightbox/\" target=\"_blank"
-"\">Simple Lightbox</a>), il peut être obligatoire d'activer l'option pour "
-"qu'il fonctionne."
+#: ../el-gallery-admin.php:265
+msgid "Choose a loading icon : "
+msgstr "Choisissez une icone de chargement : "
 
-#: ../el-gallery-admin.php:258
+#: ../el-gallery-admin.php:276
 msgid "Mobile Detect: "
 msgstr "Détéction Mobile : "
 
-#: ../el-gallery-admin.php:259
+#: ../el-gallery-admin.php:277
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
@@ -145,11 +136,11 @@ msgstr ""
 "Detect</a>, qu'il est activé et que vous voulez que les images soient "
 "chargées en qualité \"moyenne\" sur les smartphones."
 
-#: ../el-gallery-admin.php:265
+#: ../el-gallery-admin.php:283
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
-#: ../el-gallery.php:129
+#: ../el-gallery.php:126
 msgid ""
 "To fully enjoy this website, it is necesairy to have activatedJavaScript. "
 "Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "
@@ -162,3 +153,15 @@ msgstr ""
 #: ../el-gallery.php:133
 msgid "Loading..."
 msgstr "Chargement..."
+
+#~ msgid ""
+#~ "By activating this, clicking on images in your gallery will open them in "
+#~ "a separate tab. If you are using a lightbox plugin (like <a href=\"http://"
+#~ "wordpress.org/plugins/simple-lightbox/\" target=\"_blank\">Simple "
+#~ "Lightbox</a>), this might be necessairy for it to function."
+#~ msgstr ""
+#~ "En activant ceci, cliquer sur les images de votre galerie les ouvrira "
+#~ "dans un onglet séparé. Si vous utilisez une extension de \"lightbox"
+#~ "\" (tel que <a href=\"http://wordpress.org/plugins/simple-lightbox/\" "
+#~ "target=\"_blank\">Simple Lightbox</a>), il peut être obligatoire "
+#~ "d'activer l'option pour qu'il fonctionne."

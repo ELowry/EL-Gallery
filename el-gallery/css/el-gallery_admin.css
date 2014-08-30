@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.1
+Version: 1.2.2
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -21,10 +21,15 @@ License: GPL2
 	margin-right: -25px;
 	text-align: center;
 }
+.el-gallery_option input[type="radio"] {
+	float:none;
+	display:inline-block;
+	margin-right: 10px;
+}
 .el-gallery_option label {
 	width: 20%;
 	min-width: 80px;
-	max-width: 150px;
+	max-width: 160px;
 	font-weight: bold;
 	margin-left: 35px;
 	cursor: default;

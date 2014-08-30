@@ -9,8 +9,8 @@ Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
 Tested up to: 3.9.2<br />
-Stable tag: 1.2<br />
-Version: 1.2<br />
+Stable tag: 1.2.2<br />
+Version: 1.2.2<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,10 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+
+### Version 1.2.2
+* Fixed a major bug from previous version.
+* Added a choice of three loading icons.
 
 ### Version 1.2.1
 * Fixed an eventual bug linked to using WP Mobile Detect.
