@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.2
+Version: 1.2.3
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -84,6 +84,7 @@ License: GPL2
 					image.onload = function () {
 						setTimeout(function(){
 							$('.el_gallery-slideshow_wrapper .el_loading',curr_gallery).css('display','none');
+							$('.el_pause',curr_gallery).attr('style','');
 							$('.el_gallery-thumbnails_wrapper img',curr_gallery).css('height', 'auto');
 							startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
 						}, 1000); // the image has loaded, we display it
@@ -135,13 +136,13 @@ License: GPL2
 				if (typeof nav_color.foo != 'undefined') {
 					var left_gradient = 'linear-gradient(to left, ' + convertHex(nav_color,0) + ', #' + nav_color.replace('#','') + ')';
 					var right_gradient = 'linear-gradient(to right, ' + convertHex(nav_color,0).replace('#','') + ', #' + nav_color.replace('#','') + ')';
-					$('.el_nav-left',curr_gallery).css('background', left_gradient );
-					$('.el_nav-right',curr_gallery).css('background', right_gradient );
+					$('.el_nav-left',curr_gallery).css( 'background', left_gradient);
+					$('.el_nav-right',curr_gallery).css( 'background', right_gradient);
 				}
 				if (nav_light) {
 					if (nav_light == 'true') {
-						$('.el_nav-left span',curr_gallery).css('border-right', '40px solid #fff' );
-						$('.el_nav-right span',curr_gallery).css('border-left', '40px solid #fff' );
+						$('.el_nav-left span',curr_gallery).css('border-right', '40px solid #fff');
+						$('.el_nav-right span',curr_gallery).css('border-left', '40px solid #fff');
 					}
 				}
 				$('.el_nav-left',curr_gallery).bind("click", function(event) {
@@ -156,6 +157,7 @@ License: GPL2
 						clearInterval(loop_interval);
 						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
 					}
+					event.preventDefault();
 					return false;
 				});
 				$('.el_nav-right',curr_gallery).bind("click", function(event) {
@@ -170,8 +172,40 @@ License: GPL2
 						clearInterval(loop_interval);
 						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
 					}
+					event.preventDefault();
 					return false;
 				});
+
+			// We set up the Pause button
+				var paused = false;
+				if (nav_light) {
+					if (nav_light == 'true') {
+						$('.el_pause',curr_gallery).css({'color':'rgba(255,255,255,.8)', 'text-shadow':'0 0 4px rgba(0,0,0,.5), 0 0 20px #000'});
+					}
+				}
+				$('.el_pause',curr_gallery).bind("mouseenter mouseleave", function(event) {
+					if(paused == true) {
+						$('i.fa',this).toggleClass("fa-pause fa-play");
+					} else {
+					}
+				});
+				$('.el_pause',curr_gallery).bind("click", function(event) {
+					if(paused == true) {
+						$(this).attr('style','');
+						$('i.fa div',this).html('Pause');
+						startloop(cntmax,cnt,true,duration,max_height,curr_gallery)
+						paused = false;
+					} else {
+						$(this).css('display','block');
+						$('i.fa div',this).html('Play');
+						clearInterval(loop_interval);
+						paused = true;
+					}
+					$('i.fa',this).toggleClass("fa-pause fa-play");
+					event.preventDefault();
+					return false;
+				});
+
 			}
 
 
@@ -239,19 +273,8 @@ License: GPL2
 		}
 
 
-		// We preload the "loading" gif
-		function preload(arrayOfImages,duration,centered,nav,nav_color,nav_light,max_height,curr_gallery) {
-			$(arrayOfImages).each(function(index){
-				$('<img />')
-				.attr('src', arrayOfImages[index])
-				.load(function(){
-					start_slideshow(duration,centered,nav,nav_color,nav_light,max_height,curr_gallery);
-				});
-			});
-		}
-		preload([
-			'http://ericlowry.fr/en/wp-content/uploads/sites/3/2014/05/loadingGif.gif'
-		],duration,centered,nav,nav_color,nav_light,max_height,curr_gallery);
+		// We start the slideshow
+		start_slideshow(duration,centered,nav,nav_color,nav_light,max_height,curr_gallery);
 
 
 		gallery_number++;

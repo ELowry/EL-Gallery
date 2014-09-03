@@ -3,7 +3,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.2
+Version: 1.2.3
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -130,7 +130,7 @@ function el_gallery($atts) {
 	if($loading_icon == ""){
 		$loading_icon == "cog";
 	}
-	$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="fa fa-'.$loading_icon.' fa-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
+	$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="fa fa-'.$loading_icon.' fa-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="fa fa-pause fa-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
 
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;
