@@ -119,6 +119,9 @@ figure.el_gallery .el_gallery-slideshow_wrapper a.el_pause:active {
     opacity: .8;
 	filter: alpha(opacity=80);
 }
+figure.el_gallery .el_gallery-slideshow_wrapper .el_nav.loading a {
+	display: none;
+}
 figure.el_gallery .el_gallery-slideshow_wrapper img {
 	display: none;
 	position: absolute;

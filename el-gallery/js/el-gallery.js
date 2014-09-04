@@ -85,7 +85,7 @@ License: GPL2
 						setTimeout(function(){
 							$('.el_gallery-slideshow_wrapper .el_loading',curr_gallery).css('display','none');
 							if(nav == 'true') {
-								$('.el_nav',curr_gallery).css('display', 'block');
+								$('.el_nav',curr_gallery).removeClass('loading');
 							}
 							$('.el_pause',curr_gallery).attr('style','');
 							$('.el_gallery-thumbnails_wrapper img',curr_gallery).css('height', 'auto');
@@ -135,6 +135,7 @@ License: GPL2
 			
 			// We setup the arrow functions
 			if (nav == 'true') {
+				$('.el_nav',curr_gallery).css('display', 'block').addClass('loading');
 				if (typeof nav_color.foo != 'undefined') {
 					var left_gradient = 'linear-gradient(to left, ' + convertHex(nav_color,0) + ', #' + nav_color.replace('#','') + ')';
 					var right_gradient = 'linear-gradient(to right, ' + convertHex(nav_color,0).replace('#','') + ', #' + nav_color.replace('#','') + ')';
