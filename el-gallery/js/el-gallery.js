@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.3
+Version: 1.2.4
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -84,6 +84,9 @@ License: GPL2
 					image.onload = function () {
 						setTimeout(function(){
 							$('.el_gallery-slideshow_wrapper .el_loading',curr_gallery).css('display','none');
+							if(nav == 'true') {
+								$('.el_nav',curr_gallery).css('display', 'block');
+							}
 							$('.el_pause',curr_gallery).attr('style','');
 							$('.el_gallery-thumbnails_wrapper img',curr_gallery).css('height', 'auto');
 							startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
@@ -132,7 +135,6 @@ License: GPL2
 			
 			// We setup the arrow functions
 			if (nav == 'true') {
-				$('.el_nav',curr_gallery).css('display', 'block');
 				if (typeof nav_color.foo != 'undefined') {
 					var left_gradient = 'linear-gradient(to left, ' + convertHex(nav_color,0) + ', #' + nav_color.replace('#','') + ')';
 					var right_gradient = 'linear-gradient(to right, ' + convertHex(nav_color,0).replace('#','') + ', #' + nav_color.replace('#','') + ')';

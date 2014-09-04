@@ -7,9 +7,9 @@ Tags: wp, gallery, css3, jQuery, shortcode, responsive, simple, fontawsome
 Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
-Tested up to: 3.9.2
-Stable tag: 1.2.3
-Version: 1.2.3
+Tested up to: 4.0
+Stable tag: 1.2.4
+Version: 1.2.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ There you will be able to modify the duration of each slide as well as a few oth
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
+
+= Version 1.2.4 =
+* Navigation buttons display only if loaded.
 
 = Version 1.2.3 =
 * Added a play/pause button.

@@ -11,9 +11,9 @@ Tags: wp, wordpress, gallery, css3, jQuery, shortcode, responsive, simple, fonta
 Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
-Tested up to: 3.9.2<br />
-Stable tag: 1.2.3<br />
-Version: 1.2.3<br />
+Tested up to: 4.0<br />
+Stable tag: 1.2.4<br />
+Version: 1.2.4<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,9 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+
+### Version 1.2.4
+* Navigation buttons display only if loaded.
 
 ### Version 1.2.3
 * Added a play/pause button.
