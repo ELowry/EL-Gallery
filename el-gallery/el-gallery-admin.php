@@ -216,7 +216,7 @@ function el_gallery_settings_page() {
 	<div class="el-gallery_option">
 		<label><?php _e("Maximum Aspect Ratio: ", 'el-gallery' ); ?></label>
 		<input type="input" name="<?php echo $data_field_height; ?>" value="<?php echo $opt_val_height; ?>" size="10">
-		<span class="description"><?php _e( "This option enables you to avoid tall images being too large. (1:x aspect ratio)", 'el-gallery' ); ?></span>
+		<span class="description"><?php _e( 'This option enables you to avoid tall images being too large (1:x aspect ratio). It can be overridden by using the "ratio" attribute in your gallery shortcode.', 'el-gallery' ); ?></span>
 	</div>
 
 	<hr />
@@ -253,9 +253,9 @@ function el_gallery_settings_page() {
 	<hr />
 
 	<div class="el-gallery_option">
-		<input type="checkbox" name="<?php echo $data_field_center; ?>" value="true" <?php if($opt_val_center == true){echo 'checked="checked"';}?>>
-		<label><?php _e("Centered Thumbnails: ", 'el-gallery' ); ?></label>
-		<span class="description"><?php _e( 'This will center thumbnails. If deactivated, they will align to the left.', 'el-gallery' ); ?></span>
+		<input type="checkbox" name="<?php echo $data_field_links; ?>" value="true" <?php if($opt_val_links == true){echo 'checked="checked"';}?>>
+		<label><?php _e("Clickable images: ", 'el-gallery' ); ?></label>
+		<span class="description"><?php _e( 'By activating this, clicking on images in your gallery will open them in a separate tab. If you are using a lightbox plugin (like <a href="http://wordpress.org/plugins/simple-lightbox/" target="_blank">Simple Lightbox</a>), this might be necessairy for it to function.', 'el-gallery' ); ?></span>
 	</div>
 
 	<hr />

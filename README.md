@@ -67,6 +67,9 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+### Version 1.2.4
+* Navigation buttons display only if loaded.
+* Shortcode "ratio" has been added to modify the image's hight limitation ratio.
 
 ### Version 1.2.4
 * Navigation buttons display only if loaded.

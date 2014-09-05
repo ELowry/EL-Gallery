@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-09-02 15:05+0100\n"
-"PO-Revision-Date: 2014-09-02 15:05+0100\n"
+"POT-Creation-Date: 2014-09-05 11:10+0100\n"
+"PO-Revision-Date: 2014-09-05 11:11+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: fr\n"
@@ -60,11 +60,13 @@ msgstr "Format Maximum :"
 
 #: ../el-gallery-admin.php:219
 msgid ""
-"This option enables you to avoid tall images being too large. (1:x aspect "
-"ratio)"
+"This option enables you to avoid tall images being too large (1:x aspect "
+"ratio). It can be overridden by using the \"ratio\" attribute in your "
+"gallery shortcode."
 msgstr ""
 "Cette option vous permet d'éviter que les images verticales soient trop "
-"grandes. (ratio d'aspect 1:x)"
+"grandes (ratio d'aspect 1:x). Elle peut être surpassée en utilisant "
+"l'attribut \"ratio\" dans le shortcode de votre gallerie."
 
 #: ../el-gallery-admin.php:226
 msgid "Navigation Arrows: "
@@ -102,20 +104,33 @@ msgstr ""
 "Si les flèches sont trop peu visibles sur un fond sombre, activez cette "
 "option pour les rendre blanches."
 
-#: ../el-gallery-admin.php:249 ../el-gallery-admin.php:257
+#: ../el-gallery-admin.php:249
 msgid "Centered Thumbnails: "
 msgstr "Miniatures Centrées : "
 
-#: ../el-gallery-admin.php:250 ../el-gallery-admin.php:258
+#: ../el-gallery-admin.php:250
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 "Cette option centrera les miniature. Si vous ne l'activez pas, elles seront "
 "alignées à gauche."
 
-#: ../el-gallery-admin.php:264
+#: ../el-gallery-admin.php:257 ../el-gallery-admin.php:264
 msgid "Clickable images: "
 msgstr "Images cliquables : "
+
+#: ../el-gallery-admin.php:258
+msgid ""
+"By activating this, clicking on images in your gallery will open them in a "
+"separate tab. If you are using a lightbox plugin (like <a href=\"http://"
+"wordpress.org/plugins/simple-lightbox/\" target=\"_blank\">Simple Lightbox</"
+"a>), this might be necessairy for it to function."
+msgstr ""
+"En activant ceci, cliquer sur les images de votre galerie les ouvrira dans "
+"un onglet séparé. Si vous utilisez une extension de \"lightbox\" (tel que <a "
+"href=\"http://wordpress.org/plugins/simple-lightbox/\" target=\"_blank"
+"\">Simple Lightbox</a>), il peut être obligatoire d'activer l'option pour "
+"qu'il fonctionne."
 
 #: ../el-gallery-admin.php:265
 msgid "Choose a loading icon : "
@@ -140,7 +155,7 @@ msgstr ""
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
-#: ../el-gallery.php:126
+#: ../el-gallery.php:130
 msgid ""
 "To fully enjoy this website, it is necesairy to have activatedJavaScript. "
 "Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "
@@ -150,22 +165,10 @@ msgstr ""
 "<a href=\"http://www.enable-javascript.com/fr\" target=\"_blank"
 "\">instructions pour activer le JavaScript dans votre navigateur</a>."
 
-#: ../el-gallery.php:133
+#: ../el-gallery.php:137
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: ../el-gallery.php:133
+#: ../el-gallery.php:137
 msgid "Pause"
 msgstr "Pause"
-
-#~ msgid ""
-#~ "By activating this, clicking on images in your gallery will open them in "
-#~ "a separate tab. If you are using a lightbox plugin (like <a href=\"http://"
-#~ "wordpress.org/plugins/simple-lightbox/\" target=\"_blank\">Simple "
-#~ "Lightbox</a>), this might be necessairy for it to function."
-#~ msgstr ""
-#~ "En activant ceci, cliquer sur les images de votre galerie les ouvrira "
-#~ "dans un onglet séparé. Si vous utilisez une extension de \"lightbox"
-#~ "\" (tel que <a href=\"http://wordpress.org/plugins/simple-lightbox/\" "
-#~ "target=\"_blank\">Simple Lightbox</a>), il peut être obligatoire "
-#~ "d'activer l'option pour qu'il fonctionne."

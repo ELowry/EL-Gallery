@@ -32,7 +32,7 @@ if (is_admin()){
 
 // We get the gallery's attributes and modify them according to options
 function prepare_el_gallery_shortcode($atts){
-	for($i = 0; $i < 3; $i++) { 
+	for($i = 0; $i < 3; $i++) {
 		extract(shortcode_atts(array(
 			'orderby' => 'menu_order ASC, ID ASC',
 			'include' => '',
@@ -103,7 +103,11 @@ function el_gallery($atts) {
 
 	$duration = get_option('el_gallery_time') * 1000;
 	$switch_width = get_option('el_gallery_width');
-	$max_height = get_option('el_gallery_height');
+	if(empty( $atts['ratio'] )) {
+		$max_height = get_option('el_gallery_height');
+	} else {
+		$max_height = $atts['ratio'];
+	}
 	$nav = get_option('el_gallery_nav');
 	$nav_color = get_option('el_gallery_nav_color');
 	$nav_light = get_option('el_gallery_nav_light');
