@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.4
+Version: 1.2.5
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -14,7 +14,6 @@ License: GPL2
 		max_height = data.max_height,
 		nav = data.nav,
 		nav_color = data.nav_color,
-		nav_light = data.nav_light,
 		centered = data.centered;
 
 	function convertHex(hex,opacity){
@@ -48,7 +47,7 @@ License: GPL2
 		var curr_gallery = '.el_gallery_number-' + gallery_number;
 
 
-		function start_slideshow(duration,centered,nav,nav_color,nav_light,max_height,curr_gallery) {
+		function start_slideshow(duration,centered,nav,nav_color,max_height,curr_gallery) {
 
 			// This function is the slideshow loop itsself
 			function startloop(cntmax,cnt,type,duration,max_height,curr_gallery) {
@@ -84,7 +83,7 @@ License: GPL2
 					image.onload = function () {
 						setTimeout(function(){
 							$('.el_gallery-slideshow_wrapper .el_loading',curr_gallery).css('display','none');
-							if(nav == 'true') {
+							if (nav == 'true') {
 								$('.el_nav',curr_gallery).removeClass('loading');
 							}
 							$('.el_pause',curr_gallery).attr('style','');
@@ -132,21 +131,21 @@ License: GPL2
 					startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
 				}
 			});
-			
-			// We setup the arrow functions
+
+			// We color the loading button's hole
+			if (typeof nav_color != 'undefined' && nav_color != '') {
+			}
+
+			// We setup the nav section
 			if (nav == 'true') {
 				$('.el_nav',curr_gallery).css('display', 'block').addClass('loading');
-				if (typeof nav_color.foo != 'undefined') {
-					var left_gradient = 'linear-gradient(to left, ' + convertHex(nav_color,0) + ', #' + nav_color.replace('#','') + ')';
-					var right_gradient = 'linear-gradient(to right, ' + convertHex(nav_color,0).replace('#','') + ', #' + nav_color.replace('#','') + ')';
+				if (typeof nav_color != 'undefined') {
+					var left_gradient = 'linear-gradient(to left, ' + convertHex(nav_color,0) + ', #' + nav_color.replace('#','') + ')',
+						right_gradient = 'linear-gradient(to right, ' + convertHex(nav_color,0).replace('#','') + ', #' + nav_color.replace('#','') + ')',
+						hole_color = '#' + nav_color.replace('#','');
 					$('.el_nav-left',curr_gallery).css( 'background', left_gradient);
 					$('.el_nav-right',curr_gallery).css( 'background', right_gradient);
-				}
-				if (nav_light) {
-					if (nav_light == 'true') {
-						$('.el_nav-left span',curr_gallery).css('border-right', '40px solid #fff');
-						$('.el_nav-right span',curr_gallery).css('border-left', '40px solid #fff');
-					}
+					$('.el-stack .fa-stack-1x',curr_gallery).css( 'color', hole_color);
 				}
 				$('.el_nav-left',curr_gallery).bind("click", function(event) {
 					cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
@@ -181,19 +180,14 @@ License: GPL2
 
 			// We set up the Pause button
 				var paused = false;
-				if (nav_light) {
-					if (nav_light == 'true') {
-						$('.el_pause',curr_gallery).css({'color':'rgba(255,255,255,.8)', 'text-shadow':'0 0 4px rgba(0,0,0,.5), 0 0 20px #000'});
-					}
-				}
 				$('.el_pause',curr_gallery).bind("mouseenter mouseleave", function(event) {
-					if(paused == true) {
+					if (paused == true) {
 						$('i.fa',this).toggleClass("fa-pause fa-play");
 					} else {
 					}
 				});
 				$('.el_pause',curr_gallery).bind("click", function(event) {
-					if(paused == true) {
+					if (paused == true) {
 						$(this).attr('style','');
 						$('i.fa div',this).html('Pause');
 						startloop(cntmax,cnt,true,duration,max_height,curr_gallery)
@@ -277,7 +271,7 @@ License: GPL2
 
 
 		// We start the slideshow
-		start_slideshow(duration,centered,nav,nav_color,nav_light,max_height,curr_gallery);
+		start_slideshow(duration,centered,nav,nav_color,max_height,curr_gallery);
 
 
 		gallery_number++;

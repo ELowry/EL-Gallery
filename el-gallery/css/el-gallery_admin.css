@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.4
+Version: 1.2.5
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -37,12 +37,30 @@ License: GPL2
 .el-gallery_option span {
 	display: block;
 }
+.el-admin_toggler i.el-admin_toggler_box {
+	float:left;
+	margin:5px 10px 5px 5px;
+}
+.el-admin_toggler label.el-admin_toggler_box {
+	margin-left:0;
+}
 .el-admin_toggle {
 	display: none;
 	clear: both;
-	margin: 20px 0 20px;
+	margin-left: 5%;
 }
 .el-admin_toggle .el-gallery_option {
 	clear: both;
-	margin-left: 5%;
+}
+.el-gallery_option > i.fa, .el-gallery_option span.fa-stack {
+	font-size:120%;
+}
+.el-stack {
+	display:inline-block !important;
+	font-size:60% !important;
+}
+.el-stack .fa-stack-1x {
+	font-size: 60%;
+	color: #fff;
+	line-height: 4.6em;
 }

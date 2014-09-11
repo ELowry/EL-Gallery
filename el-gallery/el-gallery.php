@@ -3,7 +3,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.4
+Version: 1.2.5
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -111,8 +111,12 @@ function el_gallery($atts) {
 	$nav = get_option('el_gallery_nav');
 	$nav_color = get_option('el_gallery_nav_color');
 	$nav_light = get_option('el_gallery_nav_light');
+	$nav_light_class = '';
 	$centered = get_option('el_gallery_center');
 	$loading_icon = get_option('el_gallery_icon');
+	if($nav_light == 'true') {
+		$nav_light_class = ' el_gallery_light';
+	}
 	wp_enqueue_script( 'el-gallery', plugins_url('/js/el-gallery.js', __FILE__ ) );
 	wp_localize_script( 'el-gallery', 'el_gallery_parameters',array(
 		'duration' => $duration,
@@ -120,7 +124,6 @@ function el_gallery($atts) {
 		'max_height' => $max_height,
 		'nav' => $nav,
 		'nav_color' => $nav_color,
-		'nav_light' => $nav_light,
 		'centered' => $centered
 		));
 
@@ -129,12 +132,15 @@ function el_gallery($atts) {
 
 	$print_gallery .= '<noscript><h5>'.__('To fully enjoy this website, it is necesairy to have activatedJavaScript. Here are <a href="http://www.enable-javascript.com/" target="_blank"> instructions on how to activate JavaScript for your browser</a>.','el-gallery').'</h5></noscript>';
 
-	$print_gallery .= '<div class="el_gallery-slideshow_wrapper">';
+	$print_gallery .= '<div class="el_gallery-slideshow_wrapper' . $nav_light_class . '">';
 
 	if($loading_icon == ""){
 		$loading_icon == "cog";
+	} elseif($loading_icon != "circle-hole") {
+		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="fa fa-'.$loading_icon.' fa-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="fa fa-pause fa-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
+	} else {
+		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><span class="fa-stack el-stack fa-spin"><i class="fa fa-circle fa-stack-2x"><div>'.__('Loading...','el-gallery').'</div></i><i class="fa fa-circle fa-stack-1x"></i></span></div><a href="#" class="el_pause"><i class="fa fa-pause fa-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
 	}
-	$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="fa fa-'.$loading_icon.' fa-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="fa fa-pause fa-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
 
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;
@@ -175,7 +181,7 @@ function el_gallery($atts) {
 		$thumbs_size = "16%";
 	}
 
-	$print_gallery .= '<figcaption class="el_gallery-thumbnails_wrapper" style="padding-left:'.$thumbs_padding.'%;">';
+	$print_gallery .= '<figcaption class="el_gallery-thumbnails_wrapper' . $nav_light_class . '" style="padding-left:'.$thumbs_padding.'%;">';
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;
 

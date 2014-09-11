@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.4
+Version: 1.2.5
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -162,7 +162,7 @@ function el_gallery_settings_page() {
 
 ?>
 <div class="updated">
-	<p><strong><?php _e('settings saved.', 'menu-test' ); ?></strong></p>
+	<p><strong><?php _e('Settings saved.', 'menu-test' ); ?></strong></p>
 </div>
 <?php
 
@@ -170,10 +170,6 @@ function el_gallery_settings_page() {
 
 	// We load the admin-specific javascript
 	wp_enqueue_script( 'el-gallery_admin_script', plugins_url('/js/el-gallery_admin.js', __FILE__ ) );
-	wp_localize_script( 'el-gallery_admin_script', 'el_gallery_admin_parameters',array(
-		'nav' => $opt_val_nav,
-		'nav_color' => $opt_val_nav_color
-		));
 
 	// Now display the settings editing screen
 
@@ -221,25 +217,10 @@ function el_gallery_settings_page() {
 
 	<hr />
 
-	<div class="el-gallery_option el-admin_toggler">
-		<input type="checkbox" class="el-admin_toggler_box" name="<?php echo $data_field_nav; ?>" value="true" <?php if($opt_val_nav == true){echo 'checked="checked"';}?>>
+	<div class="el-gallery_option">
+		<input type="checkbox" name="<?php echo $data_field_nav; ?>" value="true" <?php if($opt_val_nav == true){echo 'checked="checked"';}?>>
 		<label><?php _e("Navigation Arrows: ", 'el-gallery' ); ?></label>
 		<span class="description"><?php _e( 'Adds arrows on the right and left side of slides to navigate easily.', 'el-gallery' ); ?></span>
-
-        <div class="el-admin_toggle">
-            <div class="el-gallery_option">
-                <label><?php _e("Background Color: ", 'el-gallery' ); ?></label>
-                <input type="input" name="<?php echo $data_field_nav_color; ?>" value="<?php echo $opt_val_nav_color; ?>" size="7">
-                <span class="description"><?php _e( "If your posts' backgrounds are not white, please input the <a href='http://www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their background color.", 'el-gallery' ); ?></span>
-            </div>
-        
-            <div class="el-gallery_option">
-                <input type="checkbox" name="<?php echo $data_field_nav_light; ?>" value="true" <?php if($opt_val_nav_light == true){echo 'checked="checked"';}?>>
-                <label><?php _e("White Arrows: ", 'el-gallery' ); ?></label>
-                <span class="description"><?php _e( 'If the arrowsare too dark to be visible, activate this option to make them white.', 'el-gallery' ); ?></span>
-            </div>
-        </div>
-
 	</div>
 
 	<hr />
@@ -252,29 +233,62 @@ function el_gallery_settings_page() {
 
 	<hr />
 
-	<div class="el-gallery_option">
-		<input type="checkbox" name="<?php echo $data_field_links; ?>" value="true" <?php if($opt_val_links == true){echo 'checked="checked"';}?>>
-		<label><?php _e("Clickable images: ", 'el-gallery' ); ?></label>
-		<span class="description"><?php _e( 'By activating this, clicking on images in your gallery will open them in a separate tab. If you are using a lightbox plugin (like <a href="http://wordpress.org/plugins/simple-lightbox/" target="_blank">Simple Lightbox</a>), this might be necessairy for it to function.', 'el-gallery' ); ?></span>
-	</div>
+	<div class="el-gallery_option el-admin_toggler">
+		<i class="fa fa-fw fa-caret-down el-admin_toggler_box"></i>
+		<label class="el-admin_toggler_box"><?php _e("Advanced Options", 'el-gallery' ); ?></label>
 
-	<hr />
+		<div class="el-admin_toggle">
 
-	<div class="el-gallery_option">
-		<label><?php _e("Clickable images: ", 'el-gallery' ); ?></label>
-		<span class="description"><?php _e( 'Choose a loading icon : ', 'el-gallery' ); ?>
-			<i class="fa fa-cog fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="cog" <?php if($opt_val_icon == "cog"){echo 'checked="checked"';}?>>
-			<i class="fa fa-spinner fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
-			<i class="fa fa-refresh fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="refresh" <?php if($opt_val_icon == "refresh"){echo 'checked="checked"';}?>>
-		</span>
-	</div>
+			<hr />
 
-	<hr />
+			<div class="el-gallery_option">
+				<input type="checkbox" name="<?php echo $data_field_nav_light; ?>" value="true" <?php if($opt_val_nav_light == true){echo 'checked="checked"';}?>>
+				<label><?php _e("White Interface: ", 'el-gallery' ); ?></label>
+				<span class="description"><?php _e( 'If the buttons are too dark to be visible, activate this option to make them white.', 'el-gallery' ); ?></span>
+			</div>
 
-	<div class="el-gallery_option">
-		<input type="checkbox" name="<?php echo $data_field_mobile_detect; ?>" value="true" <?php if($opt_val_mobile_detect == true){echo 'checked="checked"';}?>>
-		<label><?php _e("Mobile Detect: ", 'el-gallery' ); ?></label>
-		<span class="description"><?php _e( 'Activate this option if you have the <a href="http://wordpress.org/plugins/wp-mobile-detect/" target="_blank">WP Mobile Detect</a> plugin activated and want images to be loaded in "medium" resolution on smartphones.' ); ?></span>
+			<hr />
+
+			<div class="el-gallery_option">
+				<label><?php _e("Background Color: ", 'el-gallery' ); ?></label>
+				<input type="input" name="<?php echo $data_field_nav_color; ?>" value="<?php echo $opt_val_nav_color; ?>" size="7">
+				<span class="description"><?php _e( "If your posts' backgrounds are not white, please input the <a href='http://www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their background color.", 'el-gallery' ); ?></span>
+			</div>
+
+			<hr />
+
+			<div class="el-gallery_option">
+				<input type="checkbox" name="<?php echo $data_field_links; ?>" value="true" <?php if($opt_val_links == true){echo 'checked="checked"';}?>>
+				<label><?php _e("Clickable Images: ", 'el-gallery' ); ?></label>
+				<span class="description"><?php _e( 'By activating this, clicking on images in your gallery will open them in a separate tab. If you are using a lightbox plugin (like <a href="http://wordpress.org/plugins/simple-lightbox/" target="_blank">Simple Lightbox</a>), this might be necessairy for it to function.', 'el-gallery' ); ?></span>
+			</div>
+
+			<hr />
+
+			<div class="el-gallery_option">
+				<label><?php _e("Loading Icon: ", 'el-gallery' ); ?></label>
+				<span class="description"><?php _e( 'Choose a loading icon : ', 'el-gallery' ); ?>
+					<i class="fa fa-cog fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="cog" <?php if($opt_val_icon == "cog"){echo 'checked="checked"';}?>>
+					<i class="fa fa-spinner fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
+					<i class="fa fa-refresh fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="refresh" <?php if($opt_val_icon == "refresh"){echo 'checked="checked"';}?>>
+					<i class="fa fa-circle-o-notch fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="circle-o-notch" <?php if($opt_val_icon == "refresh"){echo 'checked="circle-o-notch"';}?>>
+					<span class="fa-stack el-stack fa-spin">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-circle fa-stack-1x"></i>
+					</span> <input type="radio" value="circle-hole" name="<?php echo $data_field_icon; ?>" <?php if($opt_val_icon == "circle-hole"){echo 'checked="checked"';}?>>
+				</span>
+			</div>
+
+			<hr />
+
+			<div class="el-gallery_option">
+				<input type="checkbox" name="<?php echo $data_field_mobile_detect; ?>" value="true" <?php if($opt_val_mobile_detect == true){echo 'checked="checked"';}?>>
+				<label><?php _e("Mobile Detect: ", 'el-gallery' ); ?></label>
+				<span class="description"><?php _e( 'Activate this option if you have the <a href="http://wordpress.org/plugins/wp-mobile-detect/" target="_blank">WP Mobile Detect</a> plugin activated and want images to be loaded in "medium" resolution on smartphones.' ); ?></span>
+			</div>
+
+		</div>
+
 	</div>
 
 	<hr />
