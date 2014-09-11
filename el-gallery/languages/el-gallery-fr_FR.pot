@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-09-11 13:43+0100\n"
-"PO-Revision-Date: 2014-09-11 13:43+0100\n"
+"POT-Creation-Date: 2014-09-11 15:07+0100\n"
+"PO-Revision-Date: 2014-09-11 15:07+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: fr\n"
@@ -27,7 +27,6 @@ msgid "You do not have sufficient permissions to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
 #: ../el-gallery-admin.php:165
-#, fuzzy
 msgid "Settings saved."
 msgstr "Réglages enregistrés."
 
@@ -157,7 +156,7 @@ msgid ""
 msgstr ""
 "Activez cette option si vous utilisez l'extension <a hrerf=\"http://"
 "wordpress.org/plugins/wp-mobile-detect/\" target=\"_blank\">WP Mobile "
-"Detect</a>, qu'il est activé et que vous voulez que les images soient "
+"Detect</a>, qu'elle est activée et que vous voulez que les images soient "
 "chargées en qualité \"moyenne\" sur les smartphones."
 
 #: ../el-gallery-admin.php:297
