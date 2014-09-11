@@ -271,7 +271,7 @@ function el_gallery_settings_page() {
 					<i class="fa fa-cog fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="cog" <?php if($opt_val_icon == "cog"){echo 'checked="checked"';}?>>
 					<i class="fa fa-spinner fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
 					<i class="fa fa-refresh fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="refresh" <?php if($opt_val_icon == "refresh"){echo 'checked="checked"';}?>>
-					<i class="fa fa-circle-o-notch fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="circle-o-notch" <?php if($opt_val_icon == "refresh"){echo 'checked="circle-o-notch"';}?>>
+					<i class="fa fa-circle-o-notch fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="circle-o-notch" <?php if($opt_val_icon == "circle-o-notch"){echo 'checked="checked"';}?>>
 					<span class="fa-stack el-stack fa-spin">
 						<i class="fa fa-circle fa-stack-2x"></i>
 						<i class="fa fa-circle fa-stack-1x"></i>
