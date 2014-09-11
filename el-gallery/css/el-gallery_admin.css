@@ -52,12 +52,12 @@ License: GPL2
 .el-admin_toggle .el-gallery_option {
 	clear: both;
 }
-.el-gallery_option > i.fa, .el-gallery_option span.fa-stack {
+.el-gallery_option > span > i.fa {
 	font-size:120%;
 }
 .el-stack {
 	display:inline-block !important;
-	font-size:60% !important;
+	font-size:60%;
 }
 .el-stack .fa-stack-1x {
 	font-size: 60%;
