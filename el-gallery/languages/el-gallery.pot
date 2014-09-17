@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-09-11 13:43+0100\n"
-"PO-Revision-Date: 2014-09-11 13:43+0100\n"
+"POT-Creation-Date: 2014-09-17 11:40+0100\n"
+"PO-Revision-Date: 2014-09-17 11:40+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: en_US\n"
@@ -22,11 +22,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: ../el-gallery-admin.php:57
+#: ../el-gallery-admin.php:55
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: ../el-gallery-admin.php:165
+#: ../el-gallery-admin.php:153
 msgid "Settings saved."
 msgstr ""
 
@@ -34,82 +34,95 @@ msgstr ""
 msgid "EL-Gallery Plugin Settings"
 msgstr ""
 
-#: ../el-gallery-admin.php:197
+#: ../el-gallery-admin.php:186
+msgid ""
+"EL-Gallery is an elegant ultra-lightweight javascript & css gallery "
+"replacement for WordPress."
+msgstr ""
+
+#: ../el-gallery-admin.php:187
+msgid ""
+"Feel free to rate/review, validate and/or ask questions on <a href=\"http://"
+"wordpress.org/plugins/el-gallery/\" target=\"_blank\">this plugin's webpage</"
+"a>."
+msgstr ""
+
+#: ../el-gallery-admin.php:196
 msgid "Slide Duration: "
 msgstr ""
 
-#: ../el-gallery-admin.php:199
+#: ../el-gallery-admin.php:198
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr ""
 
-#: ../el-gallery-admin.php:205
+#: ../el-gallery-admin.php:204
 msgid "Transition Width: "
 msgstr ""
 
-#: ../el-gallery-admin.php:207
+#: ../el-gallery-admin.php:206
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
 msgstr ""
 
-#: ../el-gallery-admin.php:213
+#: ../el-gallery-admin.php:212
 msgid "Maximum Aspect Ratio: "
 msgstr ""
 
-#: ../el-gallery-admin.php:215
+#: ../el-gallery-admin.php:214
 msgid ""
 "This option enables you to avoid tall images being too large (1:x aspect "
 "ratio). It can be overridden by using the \"ratio\" attribute in your "
 "gallery shortcode."
 msgstr ""
 
-#: ../el-gallery-admin.php:222
+#: ../el-gallery-admin.php:221
 msgid "Navigation Arrows: "
 msgstr ""
 
-#: ../el-gallery-admin.php:223
+#: ../el-gallery-admin.php:222
 msgid "Adds arrows on the right and left side of slides to navigate easily."
 msgstr ""
 
-#: ../el-gallery-admin.php:230
+#: ../el-gallery-admin.php:229
 msgid "Centered Thumbnails: "
 msgstr ""
 
-#: ../el-gallery-admin.php:231
+#: ../el-gallery-admin.php:230
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 
-#: ../el-gallery-admin.php:238
+#: ../el-gallery-admin.php:237
 msgid "Advanced Options"
 msgstr ""
 
-#: ../el-gallery-admin.php:246
+#: ../el-gallery-admin.php:244
 msgid "White Interface: "
 msgstr ""
 
-#: ../el-gallery-admin.php:247
+#: ../el-gallery-admin.php:245
 msgid ""
 "If the buttons are too dark to be visible, activate this option to make them "
 "white."
 msgstr ""
 
-#: ../el-gallery-admin.php:253
+#: ../el-gallery-admin.php:251
 msgid "Background Color: "
 msgstr ""
 
-#: ../el-gallery-admin.php:255
+#: ../el-gallery-admin.php:253
 msgid ""
 "If your posts' backgrounds are not white, please input the <a href='http://"
 "www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their "
 "background color."
 msgstr ""
 
-#: ../el-gallery-admin.php:262
+#: ../el-gallery-admin.php:260
 msgid "Clickable Images: "
 msgstr ""
 
-#: ../el-gallery-admin.php:263
+#: ../el-gallery-admin.php:261
 msgid ""
 "By activating this, clicking on images in your gallery will open them in a "
 "separate tab. If you are using a lightbox plugin (like <a href=\"http://"
@@ -117,26 +130,26 @@ msgid ""
 "a>), this might be necessairy for it to function."
 msgstr ""
 
-#: ../el-gallery-admin.php:269
+#: ../el-gallery-admin.php:267
 msgid "Loading Icon: "
 msgstr ""
 
-#: ../el-gallery-admin.php:270
+#: ../el-gallery-admin.php:268
 msgid "Choose a loading icon : "
 msgstr ""
 
-#: ../el-gallery-admin.php:286
+#: ../el-gallery-admin.php:284
 msgid "Mobile Detect: "
 msgstr ""
 
-#: ../el-gallery-admin.php:287
+#: ../el-gallery-admin.php:285
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
 "and want images to be loaded in \"medium\" resolution on smartphones."
 msgstr ""
 
-#: ../el-gallery-admin.php:297
+#: ../el-gallery-admin.php:295
 msgid "Save Changes"
 msgstr ""
 

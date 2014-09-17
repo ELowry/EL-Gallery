@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.5
+Version: 1.2.6
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -35,7 +35,6 @@ function el_gallery_admin_menu(){
 	$icon_url = '';
 	$position = 10;
 	$el_gallery_page = add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position);
-
 	add_action( 'admin_print_styles-' . $el_gallery_page, 'el_gallery_admin_styles' );
 }
 
@@ -50,7 +49,6 @@ function el_gallery_admin_styles() {
 
 // el_gallery_settings_page() displays the settings page content
 function el_gallery_settings_page() {
-
 	// Must check that the user has the required capability
 	if (!current_user_can('manage_options'))
 	{
@@ -92,7 +90,6 @@ function el_gallery_settings_page() {
 	$opt_val_mobile_detect = get_option( $opt_mobile_detect );
 	$opt_val_icon = get_option( $opt_icon );
 
-
 	// See if the user has posted us some information
 	// If they did, this hidden field will be set to true
 	if( isset($_POST[ $hidden_field ]) && $_POST[ $hidden_field ] == true ) {
@@ -120,38 +117,43 @@ function el_gallery_settings_page() {
 		update_option( $opt_mobile_detect, $opt_val_mobile_detect );
 		update_option( $opt_icon, $opt_val_icon );
 
-		// Put a settings updated message on the screen
+	// Put a settings updated message on the screen
+		// Prepare default values upon activate
+		register_activation_hook( __FILE__, 'el_gallery_initiate_options' );
+		function el_gallery_initiate_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect,$opt_icon){
+			add_option($opt_time, '10');
+			add_option($opt_width, '600');
+			add_option($opt_height, '0.8');
+			add_option($opt_nav, 'true');
+			add_option($opt_nav_color, 'ffffff');
+			add_option($opt_nav_light, 'false');
+			add_option($opt_center, 'true');
+			add_option($opt_links, 'true');
+			add_option($opt_mobile_detect, 'false');
+			add_option($opt_icon, 'cog');
+		}
 
-	// Prepare default values upon activate
-	register_activation_hook( __FILE__, 'el_gallery_initiate_options' );
-	function el_gallery_initiate_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect,$opt_icon){
-		add_option($opt_time, '10');
-		add_option($opt_width, '600');
-		add_option($opt_height, '0.8');
-		add_option($opt_nav, 'true');
-		add_option($opt_nav_color, 'fff');
-		add_option($opt_nav_light, 'false');
-		add_option($opt_center, 'true');
-		add_option($opt_links, 'true');
-		add_option($opt_mobile_detect, 'false');
-		add_option($opt_icon, 'cog');
+		// Remove options upon deactivate
+		register_deactivation_hook( __FILE__, 'el_gallery_remove_options' );
+		function el_gallery_remove_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect,$opt_icon){
+			remove_option($opt_time);
+			remove_option($opt_width);
+			remove_option($opt_height);
+			remove_option($opt_nav);
+			remove_option($opt_nav_color);
+			remove_option($opt_nav_light);
+			remove_option($opt_center);
+			remove_option($opt_links);
+			remove_option($opt_mobile_detect);
+			remove_option($opt_icon);
+		}
+
+?>
+<div class="updated">
+	<p><strong><?php _e('Settings saved.', 'menu-test' ); ?></strong></p>
+</div>
+<?php
 	}
-
-	// Remove options upon deactivate
-	register_deactivation_hook( __FILE__, 'el_gallery_remove_options' );
-	function el_gallery_remove_options($opt_time,$opt_width,$opt_height,$opt_center,$opt_links,$opt_mobile_detect,$opt_icon){
-		remove_option($opt_time);
-		remove_option($opt_width);
-		remove_option($opt_height);
-		remove_option($opt_nav);
-		remove_option($opt_nav_color);
-		remove_option($opt_nav_light);
-		remove_option($opt_center);
-		remove_option($opt_links);
-		remove_option($opt_mobile_detect);
-		remove_option($opt_icon);
-	}
-
 	// Error Correction
 	if (!is_numeric($opt_val_time)) {
 		$opt_val_time = 10;
@@ -159,33 +161,30 @@ function el_gallery_settings_page() {
 	if ($opt_val_time < 2) {
 		$opt_val_time = 2;
 	}
-
-?>
-<div class="updated">
-	<p><strong><?php _e('Settings saved.', 'menu-test' ); ?></strong></p>
-</div>
-<?php
-
+	echo '<!-- ERICTEST '.strlen($opt_val_nav_color).'-->';
+	if (strlen($opt_val_nav_color) != 6) {
+		if($is_IE || $is_safari || $is_iphone) {
+			$opt_val_nav_color = "ffffff";
+		} else {
+			$opt_val_nav_color = "#ffffff";
+		}
 	}
 
 	// We load the admin-specific javascript
 	wp_enqueue_script( 'el-gallery_admin_script', plugins_url('/js/el-gallery_admin.js', __FILE__ ) );
 
 	// Now display the settings editing screen
-
 	echo '<div class="wrap">';
 
 	// header
-
 	echo "<h2>" . __( 'EL-Gallery Plugin Settings', 'el-gallery' ) . "</h2>";
 
 	// settings form
-
 	?>
 
 <details>
-	<p>EL-Gallery is an elegant ultra-lightweight javascript & css gallery replacement for WordPress.</p>
-    <p>Feel free to rate/review, validate and/or ask questions on <a href="http://wordpress.org/plugins/el-gallery/" target="_blank">this plugin's webpage</a>.</p>
+	<p><?php _e('EL-Gallery is an elegant ultra-lightweight javascript & css gallery replacement for WordPress.', 'el-gallery' ); ?></p>
+    <p><?php _e('Feel free to rate/review, validate and/or ask questions on <a href="http://wordpress.org/plugins/el-gallery/" target="_blank">this plugin\'s webpage</a>.', 'el-gallery' ); ?></p>
 </details>
 
 <form name="el-gallery_form" method="post" action="">
@@ -236,7 +235,6 @@ function el_gallery_settings_page() {
 	<div class="el-gallery_option el-admin_toggler">
 		<i class="fa fa-fw fa-caret-down el-admin_toggler_box"></i>
 		<label class="el-admin_toggler_box"><?php _e("Advanced Options", 'el-gallery' ); ?></label>
-
 		<div class="el-admin_toggle">
 
 			<hr />
@@ -251,7 +249,7 @@ function el_gallery_settings_page() {
 
 			<div class="el-gallery_option">
 				<label><?php _e("Background Color: ", 'el-gallery' ); ?></label>
-				<input type="input" name="<?php echo $data_field_nav_color; ?>" value="<?php echo $opt_val_nav_color; ?>" size="7">
+				<input type="<?php if($is_IE || $is_safari || $is_iphone){echo "input";}else{echo "color";} ?>" name="<?php echo $data_field_nav_color; ?>" value="<?php echo $opt_val_nav_color; ?>" size="7">
 				<span class="description"><?php _e( "If your posts' backgrounds are not white, please input the <a href='http://www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their background color.", 'el-gallery' ); ?></span>
 			</div>
 
@@ -284,7 +282,7 @@ function el_gallery_settings_page() {
 			<div class="el-gallery_option">
 				<input type="checkbox" name="<?php echo $data_field_mobile_detect; ?>" value="true" <?php if($opt_val_mobile_detect == true){echo 'checked="checked"';}?>>
 				<label><?php _e("Mobile Detect: ", 'el-gallery' ); ?></label>
-				<span class="description"><?php _e( 'Activate this option if you have the <a href="http://wordpress.org/plugins/wp-mobile-detect/" target="_blank">WP Mobile Detect</a> plugin activated and want images to be loaded in "medium" resolution on smartphones.' ); ?></span>
+				<span class="description"><?php _e( 'Activate this option if you have the <a href="http://wordpress.org/plugins/wp-mobile-detect/" target="_blank">WP Mobile Detect</a> plugin activated and want images to be loaded in "medium" resolution on smartphones.', 'el-gallery' ); ?></span>
 			</div>
 
 		</div>
@@ -298,9 +296,9 @@ function el_gallery_settings_page() {
 	</p>
 
 </form>
+
 </div>
 
 <?php
-
 }
 ?>

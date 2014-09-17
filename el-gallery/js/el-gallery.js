@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.5
+Version: 1.2.6
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -31,9 +31,9 @@ License: GPL2
 
 	function variable_css(switch_width){
 		if ($(window).width() < switch_width ) {
-			$('figure.el_gallery figcaption.el_gallery-thumbnails_wrapper img').css({'width': '16%', 'margin': '0 2%'});
+			$('figure.el_gallery figcaption.el_gallery-thumbnails_wrapper img').css({'width': '16%', 'margin': '2%'});
 		} else {
-			$('figure.el_gallery figcaption.el_gallery-thumbnails_wrapper img').css({'width': '10%', 'margin': '0 1.25%'});
+			$('figure.el_gallery figcaption.el_gallery-thumbnails_wrapper img').css({'width': '10%', 'margin': '1.25%'});
 		}
 	}
 	$(window).resize(function(){variable_css(switch_width)});
@@ -160,7 +160,6 @@ License: GPL2
 						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
 					}
 					event.preventDefault();
-					return false;
 				});
 				$('.el_nav-right',curr_gallery).bind("click", function(event) {
 					cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
@@ -175,7 +174,6 @@ License: GPL2
 						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
 					}
 					event.preventDefault();
-					return false;
 				});
 
 			// We set up the Pause button
@@ -200,7 +198,6 @@ License: GPL2
 					}
 					$('i.fa',this).toggleClass("fa-pause fa-play");
 					event.preventDefault();
-					return false;
 				});
 
 			}
@@ -231,7 +228,6 @@ License: GPL2
 						var thumb_margin_num = 1.25 + ((100 - (count_extra * thumb_elem_width)) / 2);
 						var thumb_margin = thumb_margin_num + "%";
 						$(this).css('margin-left', thumb_margin);
-						return false;
 					}
 					curr_count++;
 				});

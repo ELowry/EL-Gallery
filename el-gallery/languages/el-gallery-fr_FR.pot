@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-09-11 15:07+0100\n"
-"PO-Revision-Date: 2014-09-11 15:07+0100\n"
+"POT-Creation-Date: 2014-09-17 11:41+0100\n"
+"PO-Revision-Date: 2014-09-17 11:44+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: fr\n"
@@ -22,11 +22,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: ../el-gallery-admin.php:57
+#: ../el-gallery-admin.php:55
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
-#: ../el-gallery-admin.php:165
+#: ../el-gallery-admin.php:153
 msgid "Settings saved."
 msgstr "Réglages enregistrés."
 
@@ -34,19 +34,37 @@ msgstr "Réglages enregistrés."
 msgid "EL-Gallery Plugin Settings"
 msgstr "Réglages de l'Extension EL-Gallery"
 
-#: ../el-gallery-admin.php:197
+#: ../el-gallery-admin.php:186
+msgid ""
+"EL-Gallery is an elegant ultra-lightweight javascript & css gallery "
+"replacement for WordPress."
+msgstr ""
+"EL-Gallery est une galerie ultra-légère en javascript & css pour remplacer "
+"celle de WordPress."
+
+#: ../el-gallery-admin.php:187
+msgid ""
+"Feel free to rate/review, validate and/or ask questions on <a href=\"http://"
+"wordpress.org/plugins/el-gallery/\" target=\"_blank\">this plugin's webpage</"
+"a>."
+msgstr ""
+"N'hésitez pas à donner votre avis et/ou poser des questions sur <a href="
+"\"http://wordpress.org/plugins/el-gallery/\" target=\"_blank\">la page web "
+"de cette extension</a>."
+
+#: ../el-gallery-admin.php:196
 msgid "Slide Duration: "
 msgstr "Durée des Diapositives : "
 
-#: ../el-gallery-admin.php:199
+#: ../el-gallery-admin.php:198
 msgid "This is the duration of the slides in seconds. (Minimum: 2)"
 msgstr "Ceci correspond à la durée en secondes des diapositives. (Minimum : 2)"
 
-#: ../el-gallery-admin.php:205
+#: ../el-gallery-admin.php:204
 msgid "Transition Width: "
 msgstr "Largeur de Transition : "
 
-#: ../el-gallery-admin.php:207
+#: ../el-gallery-admin.php:206
 msgid ""
 "When the window's width is inferior to this number, the thumbnails will go "
 "from 8 per line to 5 per line. (to disable: 0)"
@@ -54,11 +72,11 @@ msgstr ""
 "Lorsque la largeur de la fenêtre est inférieure à ce nombre, les miniatures "
 "passeront de 8 par ligne à 5 par ligne. (pour desactiver : 0)"
 
-#: ../el-gallery-admin.php:213
+#: ../el-gallery-admin.php:212
 msgid "Maximum Aspect Ratio: "
 msgstr "Format Maximum :"
 
-#: ../el-gallery-admin.php:215
+#: ../el-gallery-admin.php:214
 msgid ""
 "This option enables you to avoid tall images being too large (1:x aspect "
 "ratio). It can be overridden by using the \"ratio\" attribute in your "
@@ -68,36 +86,36 @@ msgstr ""
 "grandes. (ratio d'aspect 1:x). Elle peut être modifiée dans chaque galerie "
 "avec l'attribut \"ratio\" du shortcode."
 
-#: ../el-gallery-admin.php:222
+#: ../el-gallery-admin.php:221
 msgid "Navigation Arrows: "
 msgstr "Flèches de Navigation :"
 
-#: ../el-gallery-admin.php:223
+#: ../el-gallery-admin.php:222
 msgid "Adds arrows on the right and left side of slides to navigate easily."
 msgstr ""
 "Ajoute des flèche à gauche et à droite des diapositives pour naviguer plus "
 "facilement."
 
-#: ../el-gallery-admin.php:230
+#: ../el-gallery-admin.php:229
 msgid "Centered Thumbnails: "
 msgstr "Miniatures Centrées : "
 
-#: ../el-gallery-admin.php:231
+#: ../el-gallery-admin.php:230
 msgid ""
 "This will center thumbnails. If deactivated, they will align to the left."
 msgstr ""
 "Cette option centrera les miniature. Si vous ne l'activez pas, elles seront "
 "alignées à gauche."
 
-#: ../el-gallery-admin.php:238
+#: ../el-gallery-admin.php:237
 msgid "Advanced Options"
 msgstr "Options Avancées"
 
-#: ../el-gallery-admin.php:246
+#: ../el-gallery-admin.php:244
 msgid "White Interface: "
 msgstr "Interface Blanc : "
 
-#: ../el-gallery-admin.php:247
+#: ../el-gallery-admin.php:245
 msgid ""
 "If the buttons are too dark to be visible, activate this option to make them "
 "white."
@@ -105,11 +123,11 @@ msgstr ""
 "Si les boutons sont trop peu visibles sur un fond sombre, activez cette "
 "option pour les rendre blanches."
 
-#: ../el-gallery-admin.php:253
+#: ../el-gallery-admin.php:251
 msgid "Background Color: "
 msgstr "Couleur de Fond :"
 
-#: ../el-gallery-admin.php:255
+#: ../el-gallery-admin.php:253
 msgid ""
 "If your posts' backgrounds are not white, please input the <a href='http://"
 "www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their "
@@ -119,11 +137,11 @@ msgstr ""
 "href='http://www.colorpicker.com/' target='_blank'>code couleur hexadecimal</"
 "a>."
 
-#: ../el-gallery-admin.php:262
+#: ../el-gallery-admin.php:260
 msgid "Clickable Images: "
 msgstr "Images Cliquables : "
 
-#: ../el-gallery-admin.php:263
+#: ../el-gallery-admin.php:261
 msgid ""
 "By activating this, clicking on images in your gallery will open them in a "
 "separate tab. If you are using a lightbox plugin (like <a href=\"http://"
@@ -136,19 +154,19 @@ msgstr ""
 "\">Simple Lightbox</a>), il peut être obligatoire d'activer l'option pour "
 "qu'il fonctionne."
 
-#: ../el-gallery-admin.php:269
+#: ../el-gallery-admin.php:267
 msgid "Loading Icon: "
 msgstr "Icone de Chargement : "
 
-#: ../el-gallery-admin.php:270
+#: ../el-gallery-admin.php:268
 msgid "Choose a loading icon : "
 msgstr "Choisissez une icone de chargement : "
 
-#: ../el-gallery-admin.php:286
+#: ../el-gallery-admin.php:284
 msgid "Mobile Detect: "
 msgstr "Détéction Mobile : "
 
-#: ../el-gallery-admin.php:287
+#: ../el-gallery-admin.php:285
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
@@ -159,7 +177,7 @@ msgstr ""
 "Detect</a>, qu'elle est activée et que vous voulez que les images soient "
 "chargées en qualité \"moyenne\" sur les smartphones."
 
-#: ../el-gallery-admin.php:297
+#: ../el-gallery-admin.php:295
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
