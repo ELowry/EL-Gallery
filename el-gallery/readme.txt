@@ -61,7 +61,7 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
 
-= Version 1.2.6 =
+= Version 1.2.6 =* New color selection system on most browsers.
 * Minor bugfixes.
 * Fixed translations.
 
