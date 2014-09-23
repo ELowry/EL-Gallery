@@ -8,10 +8,6 @@ Author URI: http://ericlowry.fr/
 License: GPL2
 */
 
-i.el-icons-logo {
-	font-size:150%;
-	vertical-align: middle;
-}
 .el-gallery_option + hr {
 	clear:both;
 }
