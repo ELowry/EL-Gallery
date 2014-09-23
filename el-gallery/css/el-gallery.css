@@ -12,14 +12,6 @@ figure.el_gallery {
 	overflow:hidden;
 	width:100%;
 }
-figure.el_gallery i.el-icons div {
-	height:0;
-	width:0;
-	overflow:hidden;
-	text-indent:-9999px;
-	opacity:0;
-	filter:alpha(opacity=0);
-}
 figure.el_gallery .el_gallery-slideshow_wrapper .el_nav {
 	display:none;
 }
