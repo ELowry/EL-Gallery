@@ -18,7 +18,7 @@ License: GPL2
 	});
 
 	$(document).ready(function() {
-		$('#wpbody-content .wrap h2:first-child').text(function () {
+		$('#wpbody-content .wrap h2:first-child').html(function () {
 			return $(this).text().replace('EL', '<i class="el-icons el-icons-el-gallery el-icons-logo" class="el-icons-logo"><div>EL</div></i>'); 
 		});
 	});
