@@ -130,7 +130,7 @@ function el_gallery_settings_page() {
 			add_option($opt_center, 'true');
 			add_option($opt_links, 'true');
 			add_option($opt_mobile_detect, 'false');
-			add_option($opt_icon, 'cog');
+			add_option($opt_icon, 'el-gallery');
 		}
 
 		// Remove options upon deactivate
