@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-09-17 11:41+0100\n"
-"PO-Revision-Date: 2014-09-17 11:44+0100\n"
+"POT-Creation-Date: 2014-09-23 11:47+0100\n"
+"PO-Revision-Date: 2014-09-23 11:47+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: fr\n"
@@ -162,11 +162,11 @@ msgstr "Icone de Chargement : "
 msgid "Choose a loading icon : "
 msgstr "Choisissez une icone de chargement : "
 
-#: ../el-gallery-admin.php:284
+#: ../el-gallery-admin.php:321
 msgid "Mobile Detect: "
 msgstr "Détéction Mobile : "
 
-#: ../el-gallery-admin.php:285
+#: ../el-gallery-admin.php:322
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
@@ -177,7 +177,7 @@ msgstr ""
 "Detect</a>, qu'elle est activée et que vous voulez que les images soient "
 "chargées en qualité \"moyenne\" sur les smartphones."
 
-#: ../el-gallery-admin.php:295
+#: ../el-gallery-admin.php:332
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
@@ -191,11 +191,11 @@ msgstr ""
 "<a href=\"http://www.enable-javascript.com/fr\" target=\"_blank"
 "\">instructions pour activer le JavaScript dans votre navigateur</a>."
 
-#: ../el-gallery.php:140 ../el-gallery.php:142
+#: ../el-gallery.php:140 ../el-gallery.php:142 ../el-gallery.php:144
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: ../el-gallery.php:140 ../el-gallery.php:142
+#: ../el-gallery.php:140 ../el-gallery.php:142 ../el-gallery.php:144
 msgid "Pause"
 msgstr "Pause"
 

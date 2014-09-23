@@ -2,7 +2,7 @@
 /*
 Plugin: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.6a
+Version: 1.2.7
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -233,7 +233,7 @@ function el_gallery_settings_page() {
 	<hr />
 
 	<div class="el-gallery_option el-admin_toggler">
-		<i class="fa fa-fw fa-caret-down el-admin_toggler_box"></i>
+		<i class="el-icons el-icons-fw el-icons-caret-down el-admin_toggler_box"></i>
 		<label class="el-admin_toggler_box"><?php _e("Advanced Options", 'el-gallery' ); ?></label>
 		<div class="el-admin_toggle">
 
@@ -265,15 +265,52 @@ function el_gallery_settings_page() {
 
 			<div class="el-gallery_option">
 				<label><?php _e("Loading Icon: ", 'el-gallery' ); ?></label>
-				<span class="description"><?php _e( 'Choose a loading icon : ', 'el-gallery' ); ?>
-					<i class="fa fa-cog fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="cog" <?php if($opt_val_icon == "cog"){echo 'checked="checked"';}?>>
-					<i class="fa fa-spinner fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
-					<i class="fa fa-refresh fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="refresh" <?php if($opt_val_icon == "refresh"){echo 'checked="checked"';}?>>
-					<i class="fa fa-circle-o-notch fa-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="circle-o-notch" <?php if($opt_val_icon == "circle-o-notch"){echo 'checked="checked"';}?>>
-					<span class="fa-stack el-stack fa-spin">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fa fa-circle fa-stack-1x"></i>
-					</span> <input type="radio" value="circle-hole" name="<?php echo $data_field_icon; ?>" <?php if($opt_val_icon == "circle-hole"){echo 'checked="checked"';}?>>
+				<span class="description div-align"><?php _e( 'Choose a loading icon : ', 'el-gallery' ); ?>
+					<div>
+						<i class="el-icons el-icons-cog el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="cog" <?php if($opt_val_icon == "cog"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-aperture el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="aperture" <?php if($opt_val_icon == "aperture"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-compass el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="compass" <?php if($opt_val_icon == "compass"){echo 'checked="compass"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-spinner el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-curve-s el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="curve-s" <?php if($opt_val_icon == "curve-s"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-curve-l el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="curve-l" <?php if($opt_val_icon == "curve-l"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-dashes-s el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="dashes-s" <?php if($opt_val_icon == "dashes-s"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-dashes-m el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="dashes-m" <?php if($opt_val_icon == "dashes-m"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-dashes-l el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="dashes-l" <?php if($opt_val_icon == "dashes-l"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-quarter el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="quarter" <?php if($opt_val_icon == "quarter"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-refresh el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="refresh" <?php if($opt_val_icon == "refresh"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-circle-o-notch el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="circle-o-notch" <?php if($opt_val_icon == "circle-o-notch"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<span class="el-icons-stack el-stack el-icons-spin">
+							<i class="el-icons el-icons-circle el-icons-stack-2x"></i>
+							<i class="el-icons el-icons-circle el-icons-stack-1x"></i>
+						</span> <input type="radio" value="circle-hole" name="<?php echo $data_field_icon; ?>" <?php if($opt_val_icon == "circle-hole"){echo 'checked="checked"';}?>>
+					</div>
+					<div>
+						<i class="el-icons el-icons-el-gallery el-icons-pulse"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="el-gallery" <?php if($opt_val_icon == "el-gallery"){echo 'checked="checked"';}?>>
+					</div>
 				</span>
 			</div>
 

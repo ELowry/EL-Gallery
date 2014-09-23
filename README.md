@@ -12,8 +12,8 @@ Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
 Tested up to: 4.0<br />
-Stable tag: 1.2.6a<br />
-Version: 1.2.6a<br />
+Stable tag: 1.2.7<br />
+Version: 1.2.7<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,8 +37,6 @@ If you have any suggestions or questions, please <a href="http://ericlowry.fr/en
 This plugin is designed to function on any type of machine, and for it to best function on mobile devices, we reccomend you install the <a href="http://wordpress.org/plugins/wp-mobile-detect/" "Plugin : WP Mobile Detect" targer="_blank">WP Mobile Detect</a> plugin.
 
 EL-Gallery is currently available in both English and French. If you wish to help translate it into another language, please <a href="http://ericlowry.fr/en/contact/ "Contact Eric Lowry (Plugin Author)" targer="_blank">contact me</a>.
-
-EL-Gallery uses <a href="http://fortawesome.github.io/Font-Awesome/" "The Font Awsome official website" target="_blank">Font Awsome</a> icones; you may wish to consult the <a href="http://fortawesome.github.io/Font-Awesome/license/" "Font Awsome Lisence Page" target="_blank">Font Awsome Lisence</a>.
 
 ### Configuration
 Once installed, you will find the configuration menu for EL-Gallery in the “Appearance” section of  your wordpress administration page.
@@ -66,6 +64,10 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 Changelog
 ---------
+
+
+### Version 1.2.7
+* Created custom icon font with more loading icons and lighter files.
 
 ### Version 1.2.6a
 * Fixed error in FontAwsome.

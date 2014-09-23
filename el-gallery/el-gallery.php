@@ -3,7 +3,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.6a
+Version: 1.2.7
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -16,7 +16,7 @@ wp_enqueue_script( 'jquery' );
 // We initiate the css styling
 wp_enqueue_style( 'el-gallery_style', plugins_url('/css/el-gallery.css', __FILE__ ) );
 // We call upon Font Awsome
-wp_enqueue_style( 'el-gallery_font_awsome', plugins_url('/css/font-awesome.min.css', __FILE__ ) );
+wp_enqueue_style( 'el-gallery_font_awsome', plugins_url('/css/el-icons.css', __FILE__ ) );
 
 // We call the translation
 function el_gallery_translation_init() {
@@ -136,10 +136,12 @@ function el_gallery($atts) {
 
 	if($loading_icon == ""){
 		$loading_icon == "cog";
+	} elseif($loading_icon != "circle-hole" && $loading_icon != "el-gallery") {
+		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="el-icons el-icons-'.$loading_icon.' el-icons-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
 	} elseif($loading_icon != "circle-hole") {
-		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="fa fa-'.$loading_icon.' fa-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="fa fa-pause fa-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
+		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="el-icons el-icons-'.$loading_icon.' el-icons-pulse"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
 	} else {
-		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="fa fa-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><span class="fa-stack el-stack fa-spin"><i class="fa fa-circle fa-stack-2x"><div>'.__('Loading...','el-gallery').'</div></i><i class="fa fa-circle fa-stack-1x"></i></span></div><a href="#" class="el_pause"><i class="fa fa-pause fa-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="fa fa-caret-right"><div>&gt;</div></i></span></a></div>';
+		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><span class="el-icons-stack el-stack el-icons-spin"><i class="el-icons el-icons-circle el-icons-stack-2x"><div>'.__('Loading...','el-gallery').'</div></i><i class="el-icons el-icons-circle el-icons-stack-1x"></i></span></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
 	}
 
 	foreach ( $images as $image ) {

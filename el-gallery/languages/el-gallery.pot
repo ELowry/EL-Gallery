@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el-gallery\n"
 "Report-Msgid-Bugs-To: http://ericlowry.fr\n"
-"POT-Creation-Date: 2014-09-17 11:40+0100\n"
-"PO-Revision-Date: 2014-09-17 11:40+0100\n"
+"POT-Creation-Date: 2014-09-23 11:47+0100\n"
+"PO-Revision-Date: 2014-09-23 11:47+0100\n"
 "Last-Translator: Eric Lowry <ericlowry14@gmail.com>\n"
 "Language-Team: ERIC LOWRY <ERICLOWRY14@GMAIL.COM>\n"
 "Language: en_US\n"
@@ -138,18 +138,18 @@ msgstr ""
 msgid "Choose a loading icon : "
 msgstr ""
 
-#: ../el-gallery-admin.php:284
+#: ../el-gallery-admin.php:321
 msgid "Mobile Detect: "
 msgstr ""
 
-#: ../el-gallery-admin.php:285
+#: ../el-gallery-admin.php:322
 msgid ""
 "Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
 "wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
 "and want images to be loaded in \"medium\" resolution on smartphones."
 msgstr ""
 
-#: ../el-gallery-admin.php:295
+#: ../el-gallery-admin.php:332
 msgid "Save Changes"
 msgstr ""
 
@@ -160,10 +160,10 @@ msgid ""
 "instructions on how to activate JavaScript for your browser</a>."
 msgstr ""
 
-#: ../el-gallery.php:140 ../el-gallery.php:142
+#: ../el-gallery.php:140 ../el-gallery.php:142 ../el-gallery.php:144
 msgid "Loading..."
 msgstr ""
 
-#: ../el-gallery.php:140 ../el-gallery.php:142
+#: ../el-gallery.php:140 ../el-gallery.php:142 ../el-gallery.php:144
 msgid "Pause"
 msgstr ""

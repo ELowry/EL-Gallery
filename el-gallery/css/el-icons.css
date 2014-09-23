@@ -1,0 +1,42 @@
+/*
+Plugin Name: EL-Gallery
+Plugin URI: http://ericlowry.fr/
+Description: An extremely simplistic gallery replacement plugin.
+Version: 1.2.7
+Author: Eric Lowry
+Author URI: http://ericlowry.fr/
+License: GPL2
+Font Lisences:
+	Fontelico:
+		Copyright (C) 2012 by Fontello project
+		Author: Crowdsourced, for Fontello project
+		License: SIL (http://scripts.sil.org/OFL)
+		Homepage: http://fontello.com
+	Font Awesome:
+		Copyright (C) 2012 by Dave Gandy
+		Author: Dave Gandy
+		License: SIL ()
+		Homepage: http://fortawesome.github.com/Font-Awesome/
+	Iconic:
+		Copyright (C) 2012 by P.J. Onori
+		Author: P.J. Onori
+		License: SIL (http://scripts.sil.org/OFL)
+		Homepage: http://somerandomdude.com/work/iconic/
+	Elusive:
+		Copyright (C) 2013 by Aristeides Stathopoulos
+		Author: Aristeides Stathopoulos
+		License: SIL (http://scripts.sil.org/OFL)
+		Homepage: http://aristeides.com/
+	MFG Labs:
+		Copyright (C) 2012 by Daniel Bruce
+		Author: MFG Labs
+		License: SIL (http://scripts.sil.org/OFL)
+		Homepage: http://www.mfglabs.com/
+	EL-Gallery:
+		Copyright (C) 2014 by Eric Lowry
+		Author: Eric Lowry
+		License: SIL (http://scripts.sil.org/OFL)
+		Homepage: http://ericlowry.fr/
+*/
+
+@font-face{font-family:EL-Icons;src:url(../fonts/el-icons.eot?30503627);src:url(../fonts/el-icons.eot?30503627#iefix) format('embedded-opentype'),url(../fonts/el-icons.woff?30503627) format('woff'),url(../fonts/el-icons.ttf?30503627) format('truetype'),url(../fonts/el-icons.svg?30503627#el-icons) format('svg');font-weight:400;font-style:normal}.el-icons{display:inline-block;font:normal normal normal 14px/1 EL-Icons;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.el-icons-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}.el-icons-2x{font-size:2em}.el-icons-3x{font-size:3em}.el-icons-4x{font-size:4em}.el-icons-5x{font-size:5em}.el-icons-fw{width:1.28571429em;text-align:center}.el-icons-ul{padding-left:0;margin-left:2.14285714em;list-style-type:none}.el-icons-ul>li{position:relative}.el-icons-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em;text-align:center}.el-icons-li.el-icons-lg{left:-1.85714286em}.el-icons-border{padding:.2em .25em .15em;border:.08em solid #eee;border-radius:.1em}.pull-right{float:right}.pull-left{float:left}.el-icons.pull-left{margin-right:.3em}.el-icons.pull-right{margin-left:.3em}.el-icons-spin{-webkit-animation:el-icons-spin 2s infinite linear;animation:el-icons-spin 2s infinite linear}@-webkit-keyframes el-icons-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes el-icons-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}.el-icons-pulse{-webkit-animation:el-icons-pulse 3s infinite ease-in-out;animation:el-icons-pulse 3s infinite ease-in-out}@-webkit-keyframes el-icons-pulse{0%{-webkit-text-shadow:0 0 0 #9D2626;text-shadow:0 0 0 #9D2626}50%{-webkit-text-shadow:0 0 .2em #9D2626;text-shadow:0 0 .2em #9D2626}100%{-webkit-text-shadow:0 0 0 #9D2626;text-shadow:0 0 0 #9D2626}}@keyframes el-icons-pulse{0%{-webkit-text-shadow:0 0 0 #9D2626;text-shadow:0 0 0 #9D2626}50%{-webkit-text-shadow:0 0 .2em #9D2626;text-shadow:0 0 .2em #9D2626}100%{-webkit-text-shadow:0 0 0 #9D2626;text-shadow:0 0 0 #9D2626}}.el-icons-rotate-90{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.el-icons-rotate-180{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.el-icons-rotate-270{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}.el-icons-flip-horizontal{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);-webkit-transform:scale(-1,1);-ms-transform:scale(-1,1);transform:scale(-1,1)}.el-icons-flip-vertical{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);-webkit-transform:scale(1,-1);-ms-transform:scale(1,-1);transform:scale(1,-1)}:root .el-icons-flip-horizontal,:root .el-icons-flip-vertical,:root .el-icons-rotate-180,:root .el-icons-rotate-270,:root .el-icons-rotate-90{filter:none}.el-icons-stack{position:relative;display:inline-block;width:2em;height:2em;line-height:2em;vertical-align:middle}.el-icons-stack-1x,.el-icons-stack-2x{position:absolute;left:0;width:100%;text-align:center}.el-icons-stack-1x{line-height:inherit}.el-icons-stack-2x{font-size:2em}.el-icons-dashes-s:before{content:'\e800'}.el-icons-dashes-l:before{content:'\e801'}.el-icons-dashes-m:before{content:'\e802'}.el-icons-curve-l:before{content:'\e803'}.el-icons-curve-s:before{content:'\e804'}.el-icons-play:before{content:'\e805'}.el-icons-refresh:before{content:'\e806'}.el-icons-cog:before{content:'\e807'}.el-icons-circle-o-notch:before{content:'\e808'}.el-icons-circle:before{content:'\e809'}.el-icons-spinner:before{content:'\e80a'}.el-icons-pause:before{content:'\e80b'}.el-icons-aperture:before{content:'\e80c'}.el-icons-compass:before{content:'\e80d'}.el-icons-quarter:before{content:'\e80e'}.el-icons-caret-right:before{content:'\e80f'}.el-icons-caret-left:before{content:'\e810'}.el-icons-caret-down:before{content:'\e811'}.el-icons-el-gallery:before{content:'\e812'}

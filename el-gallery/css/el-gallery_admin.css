@@ -2,40 +2,47 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.6a
+Version: 1.2.7
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
 */
 
+i.el-icons-logo {
+	font-size:150%;
+	vertical-align: middle;
+}
 .el-gallery_option + hr {
-	clear: both;
+	clear:both;
 }
 .el-gallery_option label, .el-gallery_option input {
 	float:left;
-	display: block;
-	margin: 5px 5px 5px 0;
+	display:block;
+	margin:5px 5px 5px 0;
 }
 .el-gallery_option input[type="checkbox"] {
-	width: 20px;
-	margin-right: -25px;
-	text-align: center;
+	width:20px;
+	margin-right:-25px;
+	text-align:center;
 }
 .el-gallery_option input[type="radio"] {
 	float:none;
 	display:inline-block;
-	margin-right: 10px;
+	margin-right:10px;
 }
 .el-gallery_option label {
-	width: 20%;
-	min-width: 80px;
-	max-width: 160px;
-	font-weight: bold;
-	margin-left: 35px;
-	cursor: default;
+	width:20%;
+	min-width:80px;
+	max-width:160px;
+	font-weight:bold;
+	margin-left:35px;
+	cursor:default;
 }
 .el-gallery_option span {
-	display: block;
+	display:block;
+}
+.el-gallery_option span.div-align div {
+	display:inline-block;
 }
 .el-admin_toggler i.el-admin_toggler_box {
 	float:left;
@@ -45,22 +52,22 @@ License: GPL2
 	margin-left:0;
 }
 .el-admin_toggle {
-	display: none;
-	clear: both;
-	margin-left: 5%;
+	display:none;
+	clear:both;
+	margin-left:5%;
 }
 .el-admin_toggle .el-gallery_option {
-	clear: both;
+	clear:both;
 }
-.el-gallery_option > span > i.fa {
+.el-gallery_option > span.div-align > div > i.el-icons {
 	font-size:120%;
 }
 .el-stack {
 	display:inline-block !important;
 	font-size:60%;
 }
-.el-stack .fa-stack-1x {
-	font-size: 60%;
-	color: #fff;
-	line-height: 4.6em;
+.el-stack .el-icons-stack-1x {
+	font-size:60%;
+	color:#fff;
+	line-height:4.6em;
 }

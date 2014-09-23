@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.6a
+Version: 1.2.7
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -145,7 +145,7 @@ License: GPL2
 						hole_color = '#' + nav_color.replace('#','');
 					$('.el_nav-left',curr_gallery).css( 'background', left_gradient);
 					$('.el_nav-right',curr_gallery).css( 'background', right_gradient);
-					$('.el-stack .fa-stack-1x',curr_gallery).css( 'color', hole_color);
+					$('.el-stack .el-icons-stack-1x',curr_gallery).css( 'color', hole_color);
 				}
 				$('.el_nav-left',curr_gallery).bind("click", function(event) {
 					cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
@@ -180,23 +180,23 @@ License: GPL2
 				var paused = false;
 				$('.el_pause',curr_gallery).bind("mouseenter mouseleave", function(event) {
 					if (paused == true) {
-						$('i.fa',this).toggleClass("fa-pause fa-play");
+						$('i.el-icons',this).toggleClass("el-icons-pause el-icons-play");
 					} else {
 					}
 				});
 				$('.el_pause',curr_gallery).bind("click", function(event) {
 					if (paused == true) {
 						$(this).attr('style','');
-						$('i.fa div',this).html('Pause');
+						$('i.el-icons div',this).html('Pause');
 						startloop(cntmax,cnt,true,duration,max_height,curr_gallery)
 						paused = false;
 					} else {
 						$(this).css('display','block');
-						$('i.fa div',this).html('Play');
+						$('i.el-icons div',this).html('Play');
 						clearInterval(loop_interval);
 						paused = true;
 					}
-					$('i.fa',this).toggleClass("fa-pause fa-play");
+					$('i.el-icons',this).toggleClass("el-icons-pause el-icons-play");
 					event.preventDefault();
 				});
 
