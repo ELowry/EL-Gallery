@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.7
+Version: 1.2.8
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -56,14 +56,15 @@ License: GPL2
 	clear:both;
 }
 .el-gallery_option > span.div-align > div > i.el-icons {
-	font-size:120%;
+	font-size:2em;
+	vertical-align:middle;
 }
 .el-stack {
 	display:inline-block !important;
-	font-size:60%;
+
 }
 .el-stack .el-icons-stack-1x {
 	font-size:60%;
 	color:#fff;
-	line-height:4.6em;
+	line-height:3.5em;
 }

@@ -8,8 +8,8 @@ Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.2.7
-Version: 1.2.7
+Stable tag: 1.2.8
+Version: 1.2.8
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,10 @@ There you will be able to modify the duration of each slide as well as a few oth
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 == Changelog ==
+
+= Version 1.2.8 =
+* Fixed major bug with javascript loading.
+* Minor bugfixes.
 
 = Version 1.2.7 =
 * Created custom icon font with more loading icons and lighter files.
