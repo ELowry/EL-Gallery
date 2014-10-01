@@ -57,6 +57,12 @@ There you will be able to modify the duration of each slide as well as a few oth
 
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
+== Screenshots ==
+
+1. This is an example of an EL-Gallery as seen on [My Portfolio](http://ericlowry.fr/en/ "ericlowry.fr").
+2. This is the complete list of options for EL-Gallery.
+3. This is an example of an EL-Gallery as seen on a mobile phone.
+
 == Changelog ==
 
 = Version 1.2.8 =
