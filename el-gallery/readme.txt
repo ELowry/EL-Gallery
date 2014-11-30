@@ -7,9 +7,9 @@ Tags: wp, gallery, css3, jQuery, shortcode, responsive, simple, fontawsome
 Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 1.2.8
-Version: 1.2.8
+Tested up to: 4.0.1
+Stable tag: 1.2.9
+Version: 1.2.9
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,10 @@ There you will be able to modify the duration of each slide as well as a few oth
 * http://ericlowry.fr/en/
 * http://alpha-gamma.fr/
 
+= Contributors =
+
+*Andrew Kurtis for [WebHostingHub](http://webhostinghub.com).
+
 == Installation ==
 
 1. Download the plugin.
@@ -64,6 +68,9 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 3. This is an example of an EL-Gallery as seen on a mobile phone.
 
 == Changelog ==
+
+= Version 1.2.9 =
+* Added Spanish translation.
 
 = Version 1.2.8 =
 * Fixed major bug with javascript loading.

@@ -1,0 +1,197 @@
+# Copyright (C) 2014 Eric Lowry
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: el-gallery\n"
+"Report-Msgid-Bugs-To: http://ericlowry.fr\n"
+"POT-Creation-Date: 2014-09-23 11:47+0100\n"
+"PO-Revision-Date: 2014-11-30 19:01+0100\n"
+"Last-Translator: Andrew Kurtis <andrewk@webhostinghub.com>\n"
+"Language-Team: webhostinghub.com <andrewk@webhostinghub.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../el-gallery-admin.php:55
+msgid "You do not have sufficient permissions to access this page."
+msgstr " No tiene los suficientes permisos para acceder a esta página."
+
+#: ../el-gallery-admin.php:153
+msgid "Settings saved."
+msgstr "Ajustes salvados."
+
+#: ../el-gallery-admin.php:180
+msgid "EL-Gallery Plugin Settings"
+msgstr "Ajustes del Plugin de EL-Gallery"
+
+#: ../el-gallery-admin.php:186
+msgid ""
+"EL-Gallery is an elegant ultra-lightweight javascript & css gallery "
+"replacement for WordPress."
+msgstr ""
+"EL-Gallery es un reemplazo elegante de galería javascript y css ultraligero "
+"para WordPress.  "
+
+#: ../el-gallery-admin.php:187
+msgid ""
+"Feel free to rate/review, validate and/or ask questions on <a href=\"http://"
+"wordpress.org/plugins/el-gallery/\" target=\"_blank\">this plugin's webpage</"
+"a>."
+msgstr ""
+"Siéntase libre de rankear/revisar, validar y/o preguntar en <a href=\"http://"
+"wordpress.org/plugins/el-gallery/\" target=\"_blank\">esta página del "
+"plugin</a>."
+
+#: ../el-gallery-admin.php:196
+msgid "Slide Duration: "
+msgstr "Duración de la Diapositiva:"
+
+#: ../el-gallery-admin.php:198
+msgid "This is the duration of the slides in seconds. (Minimum: 2)"
+msgstr "Esta es la duración de las diapositivas en segundos (Mínimo: 2)"
+
+#: ../el-gallery-admin.php:204
+msgid "Transition Width: "
+msgstr "Ancho de la Transición:"
+
+#: ../el-gallery-admin.php:206
+msgid ""
+"When the window's width is inferior to this number, the thumbnails will go "
+"from 8 per line to 5 per line. (to disable: 0)"
+msgstr ""
+"Cuando el ancho de la ventana es inferior a este número, las miniaturas irán "
+"de 8 por línea a 5 por línea. (para deshabilitar: 0)"
+
+#: ../el-gallery-admin.php:212
+msgid "Maximum Aspect Ratio: "
+msgstr "Radio de Aspecto Máximo: "
+
+#: ../el-gallery-admin.php:214
+msgid ""
+"This option enables you to avoid tall images being too large (1:x aspect "
+"ratio). It can be overridden by using the \"ratio\" attribute in your "
+"gallery shortcode."
+msgstr ""
+"Esta opción le permite evitar que imágenes altas sean muy grandes (1:x de "
+"aspecto de radio). Puede ser sobrescrito usando el atributo \"ratio\" en su "
+"código corto de la galería."
+
+#: ../el-gallery-admin.php:221
+msgid "Navigation Arrows: "
+msgstr "Flechas de Navegación:"
+
+#: ../el-gallery-admin.php:222
+msgid "Adds arrows on the right and left side of slides to navigate easily."
+msgstr ""
+"Adiciona flechas en los lados derecho e izquierdo para navegar fácilmente."
+
+#: ../el-gallery-admin.php:229
+msgid "Centered Thumbnails: "
+msgstr "Miniaturas Centradas:"
+
+#: ../el-gallery-admin.php:230
+msgid ""
+"This will center thumbnails. If deactivated, they will align to the left."
+msgstr ""
+"Esto centrará las miniaturas. Si es desactivado, se alinearán a la izquierda."
+
+#: ../el-gallery-admin.php:237
+msgid "Advanced Options"
+msgstr "Opciones Avanzadas"
+
+#: ../el-gallery-admin.php:244
+msgid "White Interface: "
+msgstr "Interface Blanca:"
+
+#: ../el-gallery-admin.php:245
+msgid ""
+"If the buttons are too dark to be visible, activate this option to make them "
+"white."
+msgstr ""
+"Si los botones son muy oscuros para ser visibles, active esta opción para "
+"hacerlos blancos."
+
+#: ../el-gallery-admin.php:251
+msgid "Background Color: "
+msgstr "Color de Fondo:"
+
+#: ../el-gallery-admin.php:253
+msgid ""
+"If your posts' backgrounds are not white, please input the <a href='http://"
+"www.colorpicker.com/' target='_blank'>hexadecimal code</a> of their "
+"background color."
+msgstr ""
+"Si los fondos de posts no son blancos, por favor introduzca el  <a "
+"href='http://www.colorpicker.com/' target='_blank'>código hexadecimal</a> "
+"del color de fondo."
+
+#: ../el-gallery-admin.php:260
+msgid "Clickable Images: "
+msgstr "Imágenes clickables:"
+
+#: ../el-gallery-admin.php:261
+msgid ""
+"By activating this, clicking on images in your gallery will open them in a "
+"separate tab. If you are using a lightbox plugin (like <a href=\"http://"
+"wordpress.org/plugins/simple-lightbox/\" target=\"_blank\">Simple Lightbox</"
+"a>), this might be necessairy for it to function."
+msgstr ""
+"Al activar esto, haciendo clic en las imágenes las abrirá en un tab "
+"separado. Si usted está usando un plugin de lightbox (como <a href=\"http://"
+"wordpress.org/plugins/simple-lightbox/\" target=\"_blank\">Lightbox</a>), "
+"esto puede ser necesario para hacerlo funcionar."
+
+#: ../el-gallery-admin.php:267
+msgid "Loading Icon: "
+msgstr "Cargando Icono:"
+
+#: ../el-gallery-admin.php:268
+msgid "Choose a loading icon : "
+msgstr "Escoja un icono de carga:"
+
+#: ../el-gallery-admin.php:321
+msgid "Mobile Detect: "
+msgstr "Mobile Detect:"
+
+#: ../el-gallery-admin.php:322
+msgid ""
+"Activate this option if you have the <a href=\"http://wordpress.org/plugins/"
+"wp-mobile-detect/\" target=\"_blank\">WP Mobile Detect</a> plugin activated "
+"and want images to be loaded in \"medium\" resolution on smartphones."
+msgstr ""
+"Active esta opción si tiene el plugin de <a href=\"http://wordpress.org/"
+"plugins/wp-mobile-detect/\" target=\"_blank\">  Mobile Detect de WP</a> "
+"activado y quiere que las imágenes se carguen en resolución \"media\" en los "
+"smartphones."
+
+#: ../el-gallery-admin.php:332
+msgid "Save Changes"
+msgstr "Salvar Cambios"
+
+#: ../el-gallery.php:133
+msgid ""
+"To fully enjoy this website, it is necesairy to have activatedJavaScript. "
+"Here are <a href=\"http://www.enable-javascript.com/\" target=\"_blank\"> "
+"instructions on how to activate JavaScript for your browser</a>."
+msgstr ""
+"Para disfrutar completamente este sitio web, es necesario tener activado "
+"Javascript. Aquí hay a href=\"http://www.enable-javascript.com/es/\" target="
+"\"_blank\"> instrucciones de cómo activar JavaScript en su navegador</a>."
+
+#: ../el-gallery.php:140 ../el-gallery.php:142 ../el-gallery.php:144
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: ../el-gallery.php:140 ../el-gallery.php:142 ../el-gallery.php:144
+msgid "Pause"
+msgstr "Pausa"
