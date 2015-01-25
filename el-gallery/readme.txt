@@ -8,8 +8,8 @@ Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
 Tested up to: 4.0.1
-Stable tag: 1.2.9
-Version: 1.2.9
+Stable tag: 1.3
+Version: 1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,7 +50,7 @@ There you will be able to modify the duration of each slide as well as a few oth
 
 = Contributors =
 
-*Andrew Kurtis for [WebHostingHub](http://webhostinghub.com).
+* Andrew Kurtis for [WebHostingHub](http://webhostinghub.com).
 
 == Installation ==
 
@@ -68,6 +68,10 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 3. This is an example of an EL-Gallery as seen on a mobile phone.
 
 == Changelog ==
+
+= Version 1.3 =
+* The gallery no-longer changes slides if they are out of view (avoids superfluous page mouvement).
+* The pause button stays active when slides are manually changed.
 
 = Version 1.2.9 =
 * Added Spanish translation.

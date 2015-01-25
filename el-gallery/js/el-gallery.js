@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.8
+Version: 1.3
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -31,7 +31,7 @@ License: GPL2
 			return result;
 		}
 
-		function variable_css(switch_width){
+		function variable_css(switch_width){ // This sets up the swich-width option
 			if ($(window).width() < switch_width ) {
 				$('figure.el_gallery figcaption.el_gallery-thumbnails_wrapper img').css({'width': '16%', 'margin': '2%'});
 			} else {
@@ -78,7 +78,8 @@ License: GPL2
 						$('.el_gallery-slideshow_wrapper',curr_gallery).css('height', gallery_height);
 						// We set up the interval
 						clearInterval(loop_interval);
-						loop_interval = setInterval(execute_loop,duration,curr_gallery); // Change number to make the slides last more/less
+						loop_interval = setInterval(execute_loop,duration,curr_gallery); // Call the rotation of slides
+
 					} else {
 						// We wait for the first image to be loaded
 						var image = new Image();
@@ -130,8 +131,13 @@ License: GPL2
 					id = id.substr(id.length - 2);
 					cnt = id.replace(/^-+/i, '');
 					if ( $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).css('display') !== 'block' ) { // This prevents the current image from toggling when its thumbnail is clicked
-						clearInterval(loop_interval);
-						startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
+						if (paused == false) {
+							clearInterval(loop_interval);
+							startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
+						} else {
+							startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
+							clearInterval(loop_interval);
+						}
 					}
 				});
 
@@ -150,7 +156,7 @@ License: GPL2
 						$('.el_nav-right',curr_gallery).css( 'background', right_gradient);
 						$('.el-stack .el-icons-stack-1x',curr_gallery).css( 'color', hole_color);
 					}
-					$('.el_nav-left', curr_gallery).bind("click", function(e) {
+					$('.el_nav-left', curr_gallery).bind("click", function(e) { // Left Arrow
 						e.preventDefault();
 						cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
 						var id = $('.el_gallery-thumbnails_wrapper img.current',curr_gallery).attr('id');
@@ -160,11 +166,16 @@ License: GPL2
 							cnt = cntmax;
 						}
 						if ( $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).css('display') !== 'block' ) { // This prevents the current image from toggling when its thumbnail is clicked
-							clearInterval(loop_interval);
-							startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
+							if (paused == false) {
+								clearInterval(loop_interval);
+								startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
+							} else {
+								startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
+								clearInterval(loop_interval);
+							}
 						}
 					});
-					$('.el_nav-right',curr_gallery).bind("click", function(e) {
+					$('.el_nav-right',curr_gallery).bind("click", function(e) { // Right Arrow
 						e.preventDefault();
 						cntmax = $('.el_gallery-slideshow_wrapper img',curr_gallery).length - 1;
 						var id = $('.el_gallery-thumbnails_wrapper img.current',curr_gallery).attr('id');
@@ -174,8 +185,13 @@ License: GPL2
 							cnt = 0;
 						}
 						if ( $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).css('display') !== 'block' ) { // This prevents the current image from toggling when its thumbnail is clicked
-							clearInterval(loop_interval);
-							startloop(cntmax,cnt,false,duration,max_height,curr_gallery)
+							if (paused == false) {
+								clearInterval(loop_interval);
+								startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
+							} else {
+								startloop(cntmax,cnt,false,duration,max_height,curr_gallery);
+								clearInterval(loop_interval);
+							}
 						}
 					});
 
@@ -203,6 +219,29 @@ License: GPL2
 
 				}
 
+
+				// This temporarily pauses the gallery when it is not on screen
+				var overflow = false;
+				function pause_overflow(){
+					var win_top = $(window).scrollTop(),
+						win_bottom = $(window).scrollTop() + $(window).height(),
+						gallery_top = $('.el_gallery-slideshow_wrapper',curr_gallery).offset().top,
+						gallery_bottom = $('.el_gallery-slideshow_wrapper',curr_gallery).offset().top + $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).height();
+					if (overflow == true && paused == false && win_top < gallery_bottom && gallery_top < win_bottom){
+						startloop(cntmax,cnt,true,duration,max_height,curr_gallery);
+						overflow = false;
+					} else if (overflow == false && paused == false && (win_top > gallery_bottom || gallery_top > win_bottom)){
+						clearInterval(loop_interval);
+						overflow = true;
+					}
+				}
+				$(window).resize(function(){pause_overflow()});
+				$(window).scroll(function(){pause_overflow()});
+				$(document).ready(function(){
+					setTimeout(function(){
+						pause_overflow();
+					}, duration / 1.5);
+			});
 
 
 				// We set up the function to center extra thumbnails

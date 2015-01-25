@@ -3,10 +3,14 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.2.8
+Version: 1.3
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
+
+TO DO:
+ - Fix possible errors linked to pausing at specific times.
+ - Make the pause function(s) take current advancement into consideration.
 */
 
 // We initiate the translation

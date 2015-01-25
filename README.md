@@ -12,8 +12,8 @@ Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
 Tested up to: 4.0.1<br />
-Stable tag: 1.2.9<br />
-Version: 1.2.9<br />
+Stable tag: 1.3<br />
+Version: 1.3<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,10 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+
+### Version 1.3
+* The gallery no-longer changes slides if they are out of view (avoids superfluous page mouvement).
+* The pause button stays active when slides are manually changed.
 
 ### Version 1.2.9
 * Added Spanish translation.
