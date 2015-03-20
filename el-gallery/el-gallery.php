@@ -3,7 +3,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.3
+Version: 1.4
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -45,7 +45,7 @@ function prepare_el_gallery_shortcode($atts){
 			'icontag' => 'dt',
 			'captiontag' => 'dd',
 			'columns' => 3,
-			'size' => 'full',
+			'size' => 'large',
 			'link' => 'file'
 		), $atts));
 
@@ -154,7 +154,11 @@ function el_gallery($atts) {
 
 		$image_alt = get_post_meta($image->ID,'_wp_attachment_image_alt', true);
 
-		$url_info = wp_get_attachment_image_src($image->ID, $size);
+		if ( $size == 'large' ) {
+			$url_info = wp_get_attachment_image_src($image->ID, 'full');
+		} else {
+			$url_info = wp_get_attachment_image_src($image->ID, $size);
+		}
 
 		// We render the gallery
 		if (get_option('el_gallery_links') == true) {

@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.3
+Version: 1.4
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
