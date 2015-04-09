@@ -276,7 +276,7 @@ function el_gallery_settings_page() {
 						<i class="el-icons el-icons-compass el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="compass" <?php if($opt_val_icon == "compass"){echo 'checked="compass"';}?>>
 					</div>
 					<div>
-						<i class="el-icons el-icons-spinner el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
+						<i class="el-icons el-icons-spinner el-icons-spin-8"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="spinner" <?php if($opt_val_icon == "spinner"){echo 'checked="checked"';}?>>
 					</div>
 					<div>
 						<i class="el-icons el-icons-curve-s el-icons-spin"></i> <input type="radio" name="<?php echo $data_field_icon; ?>" value="curve-s" <?php if($opt_val_icon == "curve-s"){echo 'checked="checked"';}?>>

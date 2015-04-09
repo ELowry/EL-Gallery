@@ -138,9 +138,11 @@ function el_gallery($atts) {
 
 	$print_gallery .= '<div class="el_gallery-slideshow_wrapper' . $nav_light_class . '">';
 
-	if($loading_icon != "circle-hole" && $loading_icon != "el-gallery" && $loading_icon != "") {
+	if($loading_icon != "circle-hole" && $loading_icon != "el-gallery" && $loading_icon != "spinner" && $loading_icon != "") {
 		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="el-icons el-icons-'.$loading_icon.' el-icons-spin"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
-	} elseif($loading_icon != "circle-hole" || $loading_icon == "") {
+	} elseif($loading_icon == "spinner") {
+		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="el-icons el-icons-'.$loading_icon.' el-icons-spin-8"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
+	} elseif($loading_icon != "circle-hole") {
 		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><i class="el-icons el-icons-el-gallery el-icons-pulse"><div>'.__('Loading...','el-gallery').'</div></i></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
 	} else {
 		$print_gallery .= '<div class="el_nav"><a href="#" class="el_nav-left"><span><i class="el-icons el-icons-caret-left"><div>&lt;</div></i></span></a><div class="el_loading"><span class="el-icons-stack el-stack el-icons-spin"><i class="el-icons el-icons-circle el-icons-stack-2x"><div>'.__('Loading...','el-gallery').'</div></i><i class="el-icons el-icons-circle el-icons-stack-1x"></i></span></div><a href="#" class="el_pause"><i class="el-icons el-icons-pause el-icons-fw"><div>'.__('Pause','el-gallery').'</div></i></a><a href="#" class="el_nav-right"><span><i class="el-icons el-icons-caret-right"><div>&gt;</div></i></span></a></div>';
