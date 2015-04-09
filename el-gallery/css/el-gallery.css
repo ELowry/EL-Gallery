@@ -2,7 +2,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://ericlowry.fr/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.4
+Version: 1.4.1
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -141,7 +141,7 @@ figure.el_gallery .el_gallery-slideshow_wrapper .el-stack {
 figure.el_gallery .el_gallery-slideshow_wrapper .el-stack .el-icons-stack-1x {
 	font-size:60%;
 	color:#fff;
-	line-height:4.6em;
+	line-height:4.8em;
 }
 
 figure.el_gallery figcaption.el_gallery-thumbnails_wrapper {

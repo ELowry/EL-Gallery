@@ -12,8 +12,8 @@ Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
 Tested up to: 4.1.1<br />
-Stable tag: 1.4<br />
-Version: 1.4<br />
+Stable tag: 1.4.1<br />
+Version: 1.4.1<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,9 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 Changelog
 ---------
 
+
+### Version 1.4.1
+* Small update to loading-icons.
 
 ### Version 1.4
 * Default image size is set to large. Use <a href="http://codex.wordpress.org/Gallery_Shortcode#Options" target="_blank" title="Wordpress Shortcode Options">shortcode settings</a> to modify the image size for each gallery.
