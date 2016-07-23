@@ -3,7 +3,7 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.4.1
+Version: 1.4.2
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -86,6 +86,7 @@ function prepare_el_gallery_shortcode($atts){
 // We replace the gallery shortcode
 remove_shortcode('gallery');
 add_shortcode('gallery', 'el_gallery');
+add_shortcode('el-gallery', 'el_gallery');
 
 
 // We write our own shortcode

@@ -11,9 +11,9 @@ Tags: wp, wordpress, gallery, css3, jQuery, shortcode, responsive, simple, fonta
 Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
-Tested up to: 4.1.1<br />
-Stable tag: 1.4.1<br />
-Version: 1.4.1<br />
+Tested up to: 4.5.3<br />
+Stable tag: 1.4.2<br />
+Version: 1.4.2<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,9 +66,14 @@ Installation
 
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
+Note : If your theme or other plugins cause incompatibility issues (mainly overriding EL-Gallery), simply change any [gallery] shortcode to [el-gallery].
+
 Changelog
 ---------
 
+
+### Version 1.4.2
+* Added an alternative shortcode [el-gallery].
 
 ### Version 1.4.1
 * Small update to loading-icons.

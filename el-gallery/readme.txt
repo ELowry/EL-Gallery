@@ -7,9 +7,9 @@ Tags: wp, gallery, css3, jQuery, shortcode, responsive, simple, fontawsome
 Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
-Tested up to: 4.1.1
-Stable tag: 1.4.1
-Version: 1.4.1
+Tested up to: 4.5.3
+Stable tag: 1.4.2
+Version: 1.4.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,8 @@ There you will be able to modify the duration of each slide as well as a few oth
 
 Your gallery shortcodes will automatically be updated to EL-Galleries !
 
+Note : If your theme or other plugins cause incompatibility issues (mainly overriding EL-Gallery), simply change any [gallery] shortcode to [el-gallery].
+
 == Screenshots ==
 
 1. This is an example of an EL-Gallery as seen on [My Portfolio](http://ericlowry.fr/en/ "ericlowry.fr").
@@ -68,6 +70,9 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 3. This is an example of an EL-Gallery as seen on a mobile phone.
 
 == Changelog ==
+
+= Version 1.4.2 =
+* Added an alternative shortcode [el-gallery].
 
 = Version 1.4.1 =
 * Small update to loading-icons.
@@ -101,7 +106,7 @@ Your gallery shortcodes will automatically be updated to EL-Galleries !
 
 = Version 1.2.5 =
 * Simpler admin interface.
-* More Font Awsome loading icon.
+* More Font Awsome loading icon.d
 * Various color corrections.
 
 = Version 1.2.4 =
