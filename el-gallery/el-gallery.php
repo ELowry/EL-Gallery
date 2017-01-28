@@ -3,12 +3,13 @@
 Plugin Name: EL-Gallery
 Plugin URI: http://wordpress.org/plugins/el-gallery/
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.4.2
+Version: 1.5
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
 
 TO DO:
+ - Separate no-pause and no-autoplay options.
  - Fix possible errors linked to pausing at specific times.
  - Make the pause function(s) take current advancement into consideration.
 */
@@ -105,6 +106,7 @@ function el_gallery($atts) {
 	$prepared = prepare_el_gallery_shortcode($atts);
 	$images = $prepared[0];
 	$size = $prepared[1];
+	$extra_classes = "";
 
 	$duration = get_option('el_gallery_time') * 1000;
 	$switch_width = get_option('el_gallery_width');
@@ -122,6 +124,13 @@ function el_gallery($atts) {
 	if($nav_light == 'true') {
 		$nav_light_class = ' el_gallery_light';
 	}
+	if($atts['nopause']) {
+		$extra_classes .= " nopause";
+	}
+	if($atts['nothumbs']) {
+		$extra_classes .= " nothumbs";
+	}
+	
 	wp_enqueue_script( 'el-gallery', plugins_url('/js/el-gallery.js', __FILE__ ) );
 	wp_localize_script( 'el-gallery', 'el_gallery_parameters',array(
 		'duration' => $duration,
@@ -129,13 +138,14 @@ function el_gallery($atts) {
 		'max_height' => $max_height,
 		'nav' => $nav,
 		'nav_color' => $nav_color,
-		'centered' => $centered
+		'centered' => $centered,
+		'no_pause' => $atts['nopause']
 		));
 
 	$print_gallery .= '<!-- EL-Gallery Plugin -->'."\r\n";
-	$print_gallery .= '<figure class="el_gallery">';
+	$print_gallery .= '<figure class="el_gallery' . $extra_classes . '">';
 
-	$print_gallery .= '<noscript><h5>'.__('To fully enjoy this website, it is necesairy to have activatedJavaScript. Here are <a href="http://www.enable-javascript.com/" target="_blank"> instructions on how to activate JavaScript for your browser</a>.','el-gallery').'</h5></noscript>';
+	$print_gallery .= '<noscript><h5>'.__('To fully enjoy this website, it is necesairy to have activated JavaScript. Here are <a href="http://www.enable-javascript.com/" target="_blank"> instructions on how to activate JavaScript for your browser</a>.','el-gallery').'</h5></noscript>';
 
 	$print_gallery .= '<div class="el_gallery-slideshow_wrapper' . $nav_light_class . '">';
 
@@ -192,7 +202,7 @@ function el_gallery($atts) {
 		$thumbs_size = "16%";
 	}
 
-	$print_gallery .= '<figcaption class="el_gallery-thumbnails_wrapper' . $nav_light_class . '" style="padding-left:'.$thumbs_padding.'%;">';
+	$print_gallery .= '<figcaption class="el_gallery-thumbnails_wrapper' . $nav_light_class . '" style="padding-left:' . $thumbs_padding . '%;">';
 	foreach ( $images as $image ) {
 		$caption = $image->post_excerpt;
 

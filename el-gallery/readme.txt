@@ -7,9 +7,9 @@ Tags: wp, gallery, css3, jQuery, shortcode, responsive, simple, fontawsome
 Author URI: http://ericlowry.fr/
 Author: Eric Lowry
 Requires at least: 3.5
-Tested up to: 4.5.3
-Stable tag: 1.4.2
-Version: 1.4.2
+Tested up to: 4.7.2
+Stable tag: 1.5
+Version: 1.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,9 @@ There you will be able to modify the duration of each slide as well as a few oth
 * EL-Gallery uses responsive design, and you may wish to choose a specific page width at which the thumbnails will go from 8 per line to 5 per line.
 * You may wish to disable the links on a gallery’s images.
 * If you have installed the [WP Mobile Detect](http://wordpress.org/plugins/wp-mobile-detect/ "Plugin : WP Mobile Detect") plugin, don’t forget to activate the corresponding option so images may display in a lighter format when on mobile devices.
+* You can use the following [shortcode parameters](https://codex.wordpress.org/Shortcode_API#Overview "About Shortcode Attributes"):
+  * _nopause="1"_ to remove the pause button and autoplay functionality
+  * _nothumb="1"_ to remove the thumbnail display.
 
 = Examples =
 
@@ -70,6 +73,10 @@ Note : If your theme or other plugins cause incompatibility issues (mainly overr
 3. This is an example of an EL-Gallery as seen on a mobile phone.
 
 == Changelog ==
+
+= Version 1.5 =
+* Added shortcode parameter _nopause="1"_ to remove the pause button and autoplay functionality.
+* Added shortcode parameter _nothumb="1"_ to remove the thumbnail display.
 
 = Version 1.4.2 =
 * Added an alternative shortcode [el-gallery].

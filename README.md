@@ -11,9 +11,9 @@ Tags: wp, wordpress, gallery, css3, jQuery, shortcode, responsive, simple, fonta
 Author URI: http://ericlowry.fr/<br />
 Author: Eric Lowry<br />
 Requires at least: 3.5<br />
-Tested up to: 4.5.3<br />
-Stable tag: 1.4.2<br />
-Version: 1.4.2<br />
+Tested up to: 4.7.2<br />
+Stable tag: 1.5<br />
+Version: 1.5<br />
 License: GPLv2<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ There you will be able to modify the duration of each slide as well as a few oth
 * You can deactivate the navigation arrows for a lighter, simpler aesthetic.
 * You may wish to disable the links on a gallery’s images.
 * If you have installed the <a href="http://wordpress.org/plugins/wp-mobile-detect/" title="Plugin : WP Mobile Detect" target="_blank">WP Mobile Detect</a> plugin, don’t forget to activate the corresponding option so images may display in a lighter format when on mobile devices.
+* You can use the following <a href="https://codex.wordpress.org/Shortcode_API#Overview" title="About Shortcode Attributes" target="_blank">shortcode parameters</a>:
+  * _nopause="1"_ to remove the pause button and autoplay functionality
+  * _nothumb="1"_ to remove the thumbnail display.
 
 ### Examples
 
@@ -71,6 +74,10 @@ Note : If your theme or other plugins cause incompatibility issues (mainly overr
 Changelog
 ---------
 
+
+### Version 1.5
+* Added shortcode parameter _nopause="1"_ to remove the pause button and autoplay functionality.
+* Added shortcode parameter _nothumb="1"_ to remove the thumbnail display.
 
 ### Version 1.4.2
 * Added an alternative shortcode [el-gallery].
@@ -162,7 +169,7 @@ Changelog
 
 ### Version 0.91
 
- * Images use absolute positioning, not floats (allows for smooth transitions).<br />
+* Images use absolute positioning, not floats (allows for smooth transitions).<br />
 
 ### Version 0.9
 

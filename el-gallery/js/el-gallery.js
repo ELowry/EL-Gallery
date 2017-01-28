@@ -1,7 +1,7 @@
 /*
 Plugin Name: EL-Gallery
 Description: An extremely simplistic gallery replacement plugin.
-Version: 1.4.2
+Version: 1.5
 Author: Eric Lowry
 Author URI: http://ericlowry.fr/
 License: GPL2
@@ -16,7 +16,8 @@ License: GPL2
 			max_height = data.max_height,
 			nav = data.nav,
 			nav_color = data.nav_color,
-			centered = data.centered;
+			centered = data.centered
+			no_pause = data.no_pause;
 
 		function convertHex(hex,opacity){
 			hex = hex.replace('#','');
@@ -77,8 +78,10 @@ License: GPL2
 						var gallery_height = $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).height();
 						$('.el_gallery-slideshow_wrapper',curr_gallery).css('height', gallery_height);
 						// We set up the interval
-						clearInterval(loop_interval);
-						loop_interval = setInterval(execute_loop,duration,curr_gallery); // Call the rotation of slides
+						if (!no_pause) {
+							clearInterval(loop_interval);
+							loop_interval = setInterval(execute_loop,duration,curr_gallery); // Call the rotation of slides
+						}
 
 					} else {
 						// We wait for the first image to be loaded
@@ -196,52 +199,56 @@ License: GPL2
 					});
 
 				// We set up the Pause button
-					var paused = false;
-					$('.el_pause',curr_gallery).bind({"mouseenter mouseleave": function() {
-						if (paused == true) {
+					if (!no_pause) {
+						var paused = false;
+						$('.el_pause',curr_gallery).bind({"mouseenter mouseleave": function() {
+							if (paused == true) {
+								$('i.el-icons',this).toggleClass("el-icons-pause el-icons-play");
+							}
+						}, "click": function(e) {
+							e.preventDefault();
+							if (paused == true) {
+								$(this).attr('style','');
+								$('i.el-icons div',this).html('Pause');
+								startloop(cntmax,cnt,true,duration,max_height,curr_gallery)
+								paused = false;
+							} else {
+								$(this).css('display','block');
+								$('i.el-icons div',this).html('Play');
+								clearInterval(loop_interval);
+								paused = true;
+							}
 							$('i.el-icons',this).toggleClass("el-icons-pause el-icons-play");
-						}
-					}, "click": function(e) {
-						e.preventDefault();
-						if (paused == true) {
-							$(this).attr('style','');
-							$('i.el-icons div',this).html('Pause');
-							startloop(cntmax,cnt,true,duration,max_height,curr_gallery)
-							paused = false;
-						} else {
-							$(this).css('display','block');
-							$('i.el-icons div',this).html('Play');
-							clearInterval(loop_interval);
-							paused = true;
-						}
-						$('i.el-icons',this).toggleClass("el-icons-pause el-icons-play");
-					}});
+						}});
+					}
 
 				}
 
 
 				// This temporarily pauses the gallery when it is not on screen
-				var overflow = false;
-				function pause_overflow(){
-					var win_top = $(window).scrollTop(),
-						win_bottom = $(window).scrollTop() + $(window).height(),
-						gallery_top = $('.el_gallery-slideshow_wrapper',curr_gallery).offset().top,
-						gallery_bottom = $('.el_gallery-slideshow_wrapper',curr_gallery).offset().top + $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).height();
-					if (overflow == true && paused == false && win_top < gallery_bottom && gallery_top < win_bottom){
-						startloop(cntmax,cnt,true,duration,max_height,curr_gallery);
-						overflow = false;
-					} else if (overflow == false && paused == false && (win_top > gallery_bottom || gallery_top > win_bottom)){
-						clearInterval(loop_interval);
-						overflow = true;
+				if (!no_pause) {
+					var overflow = false;
+					function pause_overflow(){
+						var win_top = $(window).scrollTop(),
+							win_bottom = $(window).scrollTop() + $(window).height(),
+							gallery_top = $('.el_gallery-slideshow_wrapper',curr_gallery).offset().top,
+							gallery_bottom = $('.el_gallery-slideshow_wrapper',curr_gallery).offset().top + $('.el_gallery-slideshow_wrapper img:eq('+cnt+')',curr_gallery).height();
+						if (overflow == true && paused == false && win_top < gallery_bottom && gallery_top < win_bottom){
+							startloop(cntmax,cnt,true,duration,max_height,curr_gallery);
+							overflow = false;
+						} else if (overflow == false && paused == false && (win_top > gallery_bottom || gallery_top > win_bottom)){
+							clearInterval(loop_interval);
+							overflow = true;
+						}
 					}
+					$(window).resize(function(){pause_overflow()});
+					$(window).scroll(function(){pause_overflow()});
+					$(document).ready(function(){
+						setTimeout(function(){
+							pause_overflow();
+						}, duration / 1.5);
+					});
 				}
-				$(window).resize(function(){pause_overflow()});
-				$(window).scroll(function(){pause_overflow()});
-				$(document).ready(function(){
-					setTimeout(function(){
-						pause_overflow();
-					}, duration / 1.5);
-			});
 
 
 				// We set up the function to center extra thumbnails
